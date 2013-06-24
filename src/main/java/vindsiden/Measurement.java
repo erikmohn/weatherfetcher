@@ -11,18 +11,6 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 
 public class Measurement {
 
-	/**
-	 * <Measurement> <DataID>468454</DataID> <StationID>1</StationID>
-	 * <Time>2013-06-24T19:33:07-05:00</Time> <WindAvg>7.6</WindAvg>
-	 * <WindVectorAvg>-999</WindVectorAvg> <WindStDev>0.5</WindStDev>
-	 * <WindMax>8.8</WindMax> <WindMin>6.3</WindMin>
-	 * <DirectionAvg>193</DirectionAvg>
-	 * <DirectionVectorAvg>194</DirectionVectorAvg>
-	 * <DirectionStDev>5.2</DirectionStDev> <Temperature1>14.2</Temperature1>
-	 * <Temperature2>-999</Temperature2> <Light>-999</Light>
-	 * <Battery>4.024</Battery> </Measurement>
-	 */
-
 	private int DataID;
 	private int StationID;
 	private DateTime Time;
@@ -165,6 +153,18 @@ public class Measurement {
 		xs.registerConverter(new JodaTimeConverter());
 		return xs.toXML(this);
 
+	}
+	
+	public String toVindSidenUrl() {
+		return "http://www.vianova.no/dbsfsalg.nsf/VIND?createDocument" 
+				+ "&Vind=" + getWindAvg()  
+				+ "&VindMin=" + getWindMin()
+				+ "&VindMax=" + getWindMax()
+				+ "&Retning=" + getDirectionAvg()
+				+ "&Temp1=" + getTemperature1()
+				+ "&Temp2=" + getTemperature2()
+				+ "&Light=" + getLight()
+				+ "&Id=" + getStationID();
 	}
 
 	public static class JodaTimeConverter implements Converter {
