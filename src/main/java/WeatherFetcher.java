@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
 
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -33,7 +35,7 @@ public class WeatherFetcher extends WeatherFetcherCommon {
 		Measurement m = new Measurement();		
 		m.setDataID(-999);
 		m.setStationID(-999);	
-		m.setTime(new DateTime());
+		m.setTime(new DateTime(DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+1"))));
 		
 		Double avgWindSpeed = parseWindSpeedDouble("Average Wind Speed", 1); 
 		Double windSpeed = parseWindSpeedDouble("Wind Speed", 1);
