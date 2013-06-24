@@ -35,7 +35,7 @@ public class WeatherFetcher extends WeatherFetcherCommon {
 		Measurement m = new Measurement();		
 		m.setDataID(-999);
 		m.setStationID(-999);	
-		m.setTime(new DateTime(DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+1"))));
+		m.setTime(new DateTime(DateTimeZone.forTimeZone(TimeZone.getTimeZone("Europe/Oslo"))));
 		
 		Double avgWindSpeed = parseWindSpeedDouble("Average Wind Speed", 1); 
 		Double windSpeed = parseWindSpeedDouble("Wind Speed", 1);
