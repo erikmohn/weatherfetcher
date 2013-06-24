@@ -44,7 +44,7 @@ public class WeatherFetcher extends WeatherFetcherCommon {
 		
 		m.setWindVectorAvg(-999.0);
 		m.setWindStDev(0.5);
-		m.setDirectionAvg(Integer.parseInt(data.get("Wind Direction").get(1).replace("°", "").substring(3).replace(" ", "")));
+		m.setDirectionAvg(parseDirection());
 		m.setDirectionStDev(5.2);
 		m.setTemperature1(Double.parseDouble(data.get("Outside Temp").get(1).replace("C", "")));
 		m.setTemperature2(-999.0);
@@ -52,6 +52,12 @@ public class WeatherFetcher extends WeatherFetcherCommon {
 		m.setBattery(-999.0);
 		
 		log(m.toXml());
+	}
+
+	private int parseDirection() {
+		String directionRaw = data.get("Wind Direction").get(1).substring(3).replace(" ", "");
+		
+		return Integer.parseInt(directionRaw.substring(0, directionRaw.length()- 1));
 	}
 
 	private double parseWindSpeedDouble(String key, int pos) {
