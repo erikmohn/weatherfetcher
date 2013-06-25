@@ -162,7 +162,7 @@ public class Measurement {
 				+ "&VindMin=" + getWindMin()
 				+ "&VindMax=" + getWindMax()
 				+ "&Retning=" + getDirectionAvg()
-				+ "&Temp=" + getTemperature1();
+				+ "&Temp2=" + getTemperature1();
 	}
 
 	public static class JodaTimeConverter implements Converter {
