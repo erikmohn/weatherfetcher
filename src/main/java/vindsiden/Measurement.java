@@ -166,6 +166,7 @@ public class Measurement {
 	}
 
 	public static class JodaTimeConverter implements Converter {
+		@SuppressWarnings("rawtypes")
 		@Override
 		public boolean canConvert(final Class type) {
 			return DateTime.class.isAssignableFrom(type);
