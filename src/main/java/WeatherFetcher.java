@@ -63,7 +63,7 @@ public class WeatherFetcher extends WeatherFetcherCommon {
 	}
 
 	private int parseDirection() {
-		String directionRaw = data.get("Wind Direction").get(1).substring(3).replace(" ", "");
+		String directionRaw = data.get("Wind Direction").get(1).substring(3).replaceAll("\\D+","");;
 		
 		return Integer.parseInt(directionRaw.substring(0, directionRaw.length()- 1).replace("?", ""));
 	}
