@@ -30,10 +30,12 @@ public class WeatherFetcher extends WeatherFetcherCommon {
 		parseDocument();
 		Measurement m = parseMeasurement();
 		
+		log(m.toXml());
+		log("Vindsiden:" + m.toVindSidenUrl());	
+		
 		HttpClient client = new HttpClient();
 		GetMethod get = new GetMethod(m.toVindSidenUrl());
 		client.executeMethod(get);
-		
 		log("Completed execution");
 	}
 
@@ -57,8 +59,6 @@ public class WeatherFetcher extends WeatherFetcherCommon {
 		m.setTemperature2(-999.0);
 		m.setLight(-999);
 		m.setBattery(-999.0);
-		
-		log(m.toXml());
 		return m;
 	}
 
