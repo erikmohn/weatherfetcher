@@ -6,7 +6,7 @@
 				<data/>
 			</dataParser>
 			<weatherStationId>51</weatherStationId>
-			<davisWeatherLinkUrl>http://www.weatherlink.com/user/srfsnosk8hvasser/index.php?view=summary&amp;headers=1</davisWeatherLinkUrl>
+			<davisWeatherLinkUrl>http://www.weatherlink.com/user/srfsnosk8hvasser/index.php?view=summary&amp;headers=0</davisWeatherLinkUrl>
 		</configuration.DavisWeatherLinkWeatherStation>
 	</weatherStationList>
 </configuration.Configuration>

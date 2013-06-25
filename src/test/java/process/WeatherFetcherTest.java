@@ -1,18 +1,11 @@
 package process;
-import java.io.InputStream;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import process.WeatherFetcher;
-
-import com.thoughtworks.xstream.XStream;
-
-import configuration.Configuration;
-
 import vindsiden.VindsidenHttpClient;
+import configuration.Configuration;
 
 public class WeatherFetcherTest {
 
@@ -24,19 +17,12 @@ public class WeatherFetcherTest {
 	@Before
 	public void setUp() {
 		MockitoAnnotations.initMocks(this);
-		XStream xs = new XStream();
-		InputStream is = ClassLoader.getSystemResourceAsStream("configuration.xml");
-		Configuration config = (Configuration) xs.fromXML(is);
-		fetcher = new WeatherFetcher(config);
+		fetcher = new WeatherFetcher(Configuration.getConfiguration());
 		fetcher.setHttpClient(vindsidenHttpClientMock);
 	}
 	
 	@Test
-	public void testExecution() throws Exception {
-		
-//		doThrow(new NullPointerException()).when(vindsidenHttpClientMock).sendHttpRequest(any(Measurement.class));
-
-		
+	public void testExecution() throws Exception {		
 		fetcher.execute();
 		
 	}

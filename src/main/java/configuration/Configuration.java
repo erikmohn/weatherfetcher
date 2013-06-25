@@ -1,7 +1,10 @@
 package configuration;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.thoughtworks.xstream.XStream;
 
 import parser.WeatherDataParser;
 
@@ -29,4 +32,11 @@ public class Configuration {
 	public String getVindSidenUrl() {
 		return vindSidenUrl;
 	}
+	
+	public static Configuration getConfiguration() {
+		InputStream is = ClassLoader.getSystemResourceAsStream("configuration.xml");
+		return (Configuration) new XStream().fromXML(is);
+		
+	}
+	
 }
