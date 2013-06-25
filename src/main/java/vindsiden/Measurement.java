@@ -156,15 +156,13 @@ public class Measurement {
 	}
 	
 	public String toVindSidenUrl() {
-		return "http://www.vianova.no/dbsfsalg.nsf/VIND?createDocument" 
+		return "http://www.vindsiden.no/wrm.aspx"
+				+ "?Id=" + getStationID()
 				+ "&Vind=" + getWindAvg()  
 				+ "&VindMin=" + getWindMin()
 				+ "&VindMax=" + getWindMax()
 				+ "&Retning=" + getDirectionAvg()
-				+ "&Temp1=" + getTemperature1()
-				+ "&Temp2=" + getTemperature2()
-				+ "&Light=" + getLight()
-				+ "&Id=" + getStationID();
+				+ "&Temp1=" + getTemperature1();
 	}
 
 	public static class JodaTimeConverter implements Converter {

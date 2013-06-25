@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.methods.GetMethod;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.jsoup.Jsoup;
@@ -26,15 +28,18 @@ public class WeatherFetcher extends WeatherFetcherCommon {
 		log("Fetch weather data");
 		initialize();
 		parseDocument();
-		parseMeasurement();
+		Measurement m = parseMeasurement();
+		
+		HttpClient client = new HttpClient();
+		GetMethod get = new GetMethod(m.toVindSidenUrl());
+		client.executeMethod(get);
 		
 		log("Completed execution");
 	}
 
-	private void parseMeasurement() {
+	private Measurement parseMeasurement() {
 		Measurement m = new Measurement();		
-		m.setDataID(-999);
-		m.setStationID(-999);	
+		m.setStationID(51);	
 		m.setTime(new DateTime(DateTimeZone.forTimeZone(TimeZone.getTimeZone("Europe/Oslo"))));
 		
 		Double avgWindSpeed = parseWindSpeedDouble("Average Wind Speed", 1); 
@@ -54,6 +59,7 @@ public class WeatherFetcher extends WeatherFetcherCommon {
 		m.setBattery(-999.0);
 		
 		log(m.toXml());
+		return m;
 	}
 
 	private int parseDirection() {
