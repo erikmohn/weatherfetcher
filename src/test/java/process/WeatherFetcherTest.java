@@ -7,6 +7,9 @@ import org.mockito.MockitoAnnotations;
 import vindsiden.VindsidenHttpClient;
 import configuration.Configuration;
 
+/**
+ * @author Erik Mohn - mohn.erik@gmail.com
+ */
 public class WeatherFetcherTest {
 
 	private WeatherFetcher fetcher;

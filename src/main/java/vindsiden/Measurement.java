@@ -160,12 +160,14 @@ public class Measurement {
 	
 	public String toVindSidenUrl() {
 		return "http://www.vindsiden.no/wrm.aspx"
-				+ "?Id=" + getStationID()
-				+ "&Vind=" + getWindAvg()  
-				+ "&VindMin=" + getWindMin()
-				+ "&VindMax=" + getWindMax()
-				+ "&Retning=" + getDirectionAvg()
-				+ "&Temp2=" + getTemperature1();
+				+ "?v=0"
+				+ "&CC=314"
+				+ "&Id=" + getStationID()
+				+ "&Wind=" + getWindAvg()  
+				+ "&WindMin=" + getWindMin()
+				+ "&WindMax=" + getWindMax()
+				+ "&Dir=" + getDirectionAvg()
+				+ "&Temp1=" + getTemperature1();
 	}
 
 	public static class JodaTimeConverter implements Converter {
