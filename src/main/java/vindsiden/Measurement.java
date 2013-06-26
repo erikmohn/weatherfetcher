@@ -9,6 +9,9 @@ import com.thoughtworks.xstream.converters.MarshallingContext;
 import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 
+/**
+ * @author Erik Mohn - mohn.erik@gmail.com
+ */
 public class Measurement {
 
 	private int DataID;

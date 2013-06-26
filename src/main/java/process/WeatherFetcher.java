@@ -9,6 +9,9 @@ import vindsiden.VindsidenHttpClient;
 import configuration.Configuration;
 import configuration.WeatherStation;
 
+/**
+ * @author Erik Mohn - mohn.erik@gmail.com
+ */
 public class WeatherFetcher {
 
 	private VindsidenHttpClient httpClient;

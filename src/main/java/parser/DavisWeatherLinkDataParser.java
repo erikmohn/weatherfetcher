@@ -20,6 +20,9 @@ import vindsiden.Measurement;
 import configuration.DavisWeatherLinkWeatherStation;
 import configuration.WeatherStation;
 
+/**
+ * @author Erik Mohn - mohn.erik@gmail.com
+ */
 public class DavisWeatherLinkDataParser extends WeatherDataParser<DavisWeatherLinkWeatherStation> {
 
 	private Document document;

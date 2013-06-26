@@ -6,6 +6,9 @@ import configuration.WeatherStation;
 
 import vindsiden.Measurement;
 
+/**
+ * @author Erik Mohn - mohn.erik@gmail.com
+ */
 public abstract class WeatherDataParser<WEATHERSTATION extends WeatherStation<?>> {
 
 	private WEATHERSTATION weatherStation;

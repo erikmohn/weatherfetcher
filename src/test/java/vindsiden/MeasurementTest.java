@@ -3,6 +3,9 @@ package vindsiden;
 import org.joda.time.DateTime;
 import org.junit.Test;
 
+/**
+ * @author Erik Mohn - mohn.erik@gmail.com
+ */
 public class MeasurementTest {
 	
 	@Test

@@ -9,6 +9,9 @@ import com.thoughtworks.xstream.XStream;
 import parser.WeatherDataParser;
 
 
+/**
+ * @author Erik Mohn - mohn.erik@gmail.com
+ */
 public class Configuration {
 
 	private String vindSidenUrl;
@@ -35,8 +38,7 @@ public class Configuration {
 	
 	public static Configuration getConfiguration() {
 		InputStream is = ClassLoader.getSystemResourceAsStream("configuration.xml");
-		return (Configuration) new XStream().fromXML(is);
-		
+		return (Configuration) new XStream().fromXML(is);		
 	}
 	
 }

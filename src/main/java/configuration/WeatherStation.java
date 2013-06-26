@@ -6,8 +6,9 @@ import parser.WeatherDataParser;
 
 import vindsiden.Measurement;
 
-
-
+/**
+ * @author Erik Mohn - mohn.erik@gmail.com
+ */
 public abstract class WeatherStation<PARSER extends WeatherDataParser<?>> {
 	
 	private PARSER dataParser;

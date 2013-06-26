@@ -2,6 +2,9 @@ package process;
 
 import configuration.Configuration;
 
+/**
+ * @author Erik Mohn - mohn.erik@gmail.com
+ */
 public class WeatherFetcherProcess {
 
 	public static void main(String[] args) {
