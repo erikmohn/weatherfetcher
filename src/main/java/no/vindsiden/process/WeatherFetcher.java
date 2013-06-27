@@ -32,6 +32,7 @@ public class WeatherFetcher {
 			try {
 				processSingleWeatherStation(weatherStation);
 			} catch (Exception e) {
+				log("Error occured while processing: " + weatherStation.getName());
 				e.printStackTrace();
 			}
 		}
