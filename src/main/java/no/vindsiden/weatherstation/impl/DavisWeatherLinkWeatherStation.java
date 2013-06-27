@@ -10,8 +10,8 @@ public class DavisWeatherLinkWeatherStation extends WeatherStation<DavisWeatherL
 	
 	private String davisWeatherLinkUrl;
 	
-	public DavisWeatherLinkWeatherStation(int id, String url) {
-		super(id, DavisWeatherLinkDataParser.class);
+	public DavisWeatherLinkWeatherStation(int id, String url, String name) {
+		super(id, DavisWeatherLinkDataParser.class, name);
 		davisWeatherLinkUrl = url;
 	}
 

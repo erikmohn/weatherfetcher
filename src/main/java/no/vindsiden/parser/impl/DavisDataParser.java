@@ -70,7 +70,4 @@ public class DavisDataParser extends WeatherDataParser {
 		method.releaseConnection();
 	}
 
-	private double convertKnotsToMetersPerSecond(double knots) {
-		return knots;
-	}
 }

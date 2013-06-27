@@ -16,15 +16,17 @@ public abstract class WeatherStation<PARSER extends WeatherDataParser> {
 	private Class<PARSER> parserClass;
 	private PARSER dataParser;
 	private int weatherStationId;
+	private String name;
 	
 	
 	public Class<PARSER> getParserClass() {
 		return parserClass;
 	}
 	
-	public WeatherStation(int id, Class<PARSER> clazz) {
+	public WeatherStation(int id, Class<PARSER> clazz, String name) {
 		this.parserClass = clazz;
-		weatherStationId = id;
+		this.weatherStationId = id;
+		this.name = name;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -47,5 +49,13 @@ public abstract class WeatherStation<PARSER extends WeatherDataParser> {
 
 	public PARSER getDataParser() {
 		return dataParser;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
 	}
 }

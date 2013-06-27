@@ -9,7 +9,7 @@ public class DavisDataParserTest extends TestCase {
 
 	@Test
 	public void testDavisWeatherStation() throws Exception {
-		DavisWeatherStation weatherStation = new DavisWeatherStation(1, DavisDataParser.class);
+		DavisWeatherStation weatherStation = new DavisWeatherStation(1, DavisDataParser.class, null);
 		weatherStation.setDavisBaseUrl("http://www.moss-havn.no/weather/");
 		DavisDataParser dataParser = new DavisDataParser(weatherStation);
 		

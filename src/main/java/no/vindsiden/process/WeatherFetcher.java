@@ -8,6 +8,10 @@ import no.vindsiden.vindsiden.VindsidenHttpClient;
 import no.vindsiden.weatherstation.WeatherStation;
 
 import org.apache.commons.httpclient.HttpException;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.PeriodFormat;
 
 
 /**
@@ -36,7 +40,11 @@ public class WeatherFetcher {
 	private void processSingleWeatherStation(WeatherStation<?> weatherStation) throws IOException, HttpException {
 		Measurement measurement = weatherStation.fetchMeasurement();
 		httpClient.sendHttpRequest(measurement);
-		log("Executed HTTP request: " + measurement.toVindSidenUrl());
+		
+		DateTime now = new DateTime();
+		DateTimeFormatter fmt = DateTimeFormat.mediumDateTime();
+		
+		log( fmt.print(now) + " Executed HTTP request, for " + weatherStation.getName() + " : " + measurement.toVindSidenUrl());
 	}
 
 	public void setHttpClient(VindsidenHttpClient httpClient) {

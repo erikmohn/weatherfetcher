@@ -7,8 +7,8 @@ public class DavisWeatherStation extends WeatherStation<DavisDataParser> {
 
 	private String davisBaseUrl;
 	
-	public DavisWeatherStation(int id, Class<DavisDataParser> clazz) {
-		super(id, clazz);
+	public DavisWeatherStation(int id, Class<DavisDataParser> clazz, String name) {
+		super(id, clazz, name);
 	}
 
 	public void setDavisBaseUrl(String davisBaseUrl) {
