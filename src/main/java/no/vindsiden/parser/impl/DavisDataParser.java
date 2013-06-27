@@ -12,6 +12,7 @@ import no.vindsiden.weatherstation.impl.DavisWeatherStation;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.lang.math.NumberUtils;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 
@@ -41,10 +42,10 @@ public class DavisDataParser extends WeatherDataParser {
 		Double avgWindSpeed = Double.parseDouble(data[DavisDescription.AVG_WIND_SPEED_10_MINUTES.getIndex()]); 
 		Double windSpeed = Double.parseDouble(data[DavisDescription.AVG_WIND_SPEED.getIndex()]);
 		Double maxWindSpeed = Double.parseDouble(data[DavisDescription.GUSTS.getIndex()]);
-		
-		m.setWindAvg(windSpeed < avgWindSpeed ? avgWindSpeed : windSpeed);
-		m.setWindMin(windSpeed > avgWindSpeed ? avgWindSpeed : windSpeed);
-		m.setWindMax(avgWindSpeed > maxWindSpeed ? avgWindSpeed : maxWindSpeed);
+			
+		m.setWindAvg(avgWindSpeed);
+		m.setWindMin(NumberUtils.min(avgWindSpeed, maxWindSpeed, windSpeed));
+		m.setWindMax(NumberUtils.max(avgWindSpeed, maxWindSpeed, windSpeed));
 		
 		m.setDirectionAvg(Integer.parseInt(data[DavisDescription.WIND_DIRECTION.getIndex()]));
 		m.setTemperature1(Double.parseDouble(data[DavisDescription.TEMP.getIndex()]));
