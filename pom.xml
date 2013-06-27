@@ -46,7 +46,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 					<assembleDirectory>target</assembleDirectory>
 					<programs>
 						<program>
-							<mainClass>process.WeatherFetcherProcess</mainClass>
+							<mainClass>no.vindsiden.process.WeatherFetcherProcess</mainClass>
 							<name>fetchWeather</name>
 						</program>
 					</programs>
