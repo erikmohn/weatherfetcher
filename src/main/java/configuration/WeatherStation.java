@@ -3,25 +3,32 @@ package configuration;
 import java.io.IOException;
 
 import parser.WeatherDataParser;
+import parser.WeatherDataParserFactory;
 
 import vindsiden.Measurement;
 
 /**
  * @author Erik Mohn - mohn.erik@gmail.com
  */
-public abstract class WeatherStation<PARSER extends WeatherDataParser<?>> {
+public abstract class WeatherStation<PARSER extends WeatherDataParser> {
 	
+	private Class<PARSER> parserClass;
 	private PARSER dataParser;
 	private int weatherStationId;
 	
-	public WeatherStation(int id) {
-		weatherStationId = id;
-		dataParser = initParser(this);
+	
+	public Class<PARSER> getParserClass() {
+		return parserClass;
 	}
 	
-	public abstract PARSER initParser(WeatherStation<?> weatherStation);
+	public WeatherStation(int id, Class<PARSER> clazz) {
+		this.parserClass = clazz;
+		weatherStationId = id;
+	}
 	
+	@SuppressWarnings("unchecked")
 	public Measurement fetchMeasurement() throws IOException {
+		dataParser = (PARSER) WeatherDataParserFactory.getInstance(this);
 		return dataParser.fetchMeasurement();
 	}
 	

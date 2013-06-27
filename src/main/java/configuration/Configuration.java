@@ -6,8 +6,6 @@ import java.util.List;
 
 import com.thoughtworks.xstream.XStream;
 
-import parser.WeatherDataParser;
-
 
 /**
  * @author Erik Mohn - mohn.erik@gmail.com
@@ -15,16 +13,16 @@ import parser.WeatherDataParser;
 public class Configuration {
 
 	private String vindSidenUrl;
-	private List<WeatherStation<WeatherDataParser<?>>> weatherStationList;
+	private List<WeatherStation<?>> weatherStationList;
 
-	public void addWeatherStation(WeatherStation weatherStation) {
+	public void addWeatherStation(WeatherStation<?> weatherStation) {
 		if (weatherStationList == null) {
-			this.weatherStationList = new ArrayList<WeatherStation<WeatherDataParser<?>>>();
+			this.weatherStationList = new ArrayList<WeatherStation<?>>();
 		}
 		weatherStationList.add(weatherStation);
 	}
 
-	public List<WeatherStation<WeatherDataParser<?>>> getWeatherStationList() {
+	public List<WeatherStation<?>> getWeatherStationList() {
 		return weatherStationList;
 	}
 

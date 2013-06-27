@@ -9,22 +9,22 @@ import vindsiden.Measurement;
 /**
  * @author Erik Mohn - mohn.erik@gmail.com
  */
-public abstract class WeatherDataParser<WEATHERSTATION extends WeatherStation<?>> {
+public abstract class WeatherDataParser {
 
-	private WEATHERSTATION weatherStation;
+	private WeatherStation<?> weatherStation;
 	
 	public abstract Measurement fetchMeasurement() throws IOException;
 	
-	public WeatherDataParser initialize(WEATHERSTATION weatherStation) {
+	public WeatherDataParser initialize(WeatherStation<?> weatherStation) {
 		this.weatherStation = weatherStation;
 		return this;
 	}
 
-	public void setWeatherStation(WeatherStation weatherStation) {
-		this.weatherStation = (WEATHERSTATION) weatherStation;
+	public void setWeatherStation(WeatherStation<?> weatherStation) {
+		this.weatherStation =  weatherStation;
 	}
 
-	public WEATHERSTATION getWeatherStation() {
+	public WeatherStation<?> getWeatherStation() {
 		return weatherStation;
 	}
 	

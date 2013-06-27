@@ -23,14 +23,14 @@ import configuration.WeatherStation;
 /**
  * @author Erik Mohn - mohn.erik@gmail.com
  */
-public class DavisWeatherLinkDataParser extends WeatherDataParser<DavisWeatherLinkWeatherStation> {
+public class DavisWeatherLinkDataParser extends WeatherDataParser {
 
 	private Document document;
 	private Map<String, List<String>> data;
 	private URL url;
 	private Measurement measurement;
 	
-	public DavisWeatherLinkDataParser(WeatherStation weatherStation)  {
+	public DavisWeatherLinkDataParser(WeatherStation<DavisWeatherLinkDataParser> weatherStation)  {
 		data = new HashMap<String, List<String>>();
 		setWeatherStation(weatherStation);
 	}
@@ -43,9 +43,9 @@ public class DavisWeatherLinkDataParser extends WeatherDataParser<DavisWeatherLi
 		parseMeasurement();
 		return measurement;
 	}
-
+	
 	private void initializeURLLocation() throws MalformedURLException {
-		url = new URL(getWeatherStation().getDavisWeatherLinkUrl());
+		url = new URL(((DavisWeatherLinkWeatherStation) getWeatherStation()).getDavisWeatherLinkUrl());
 	}
 	
 	private void fetchDocument() throws IOException {

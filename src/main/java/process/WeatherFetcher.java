@@ -23,7 +23,7 @@ public class WeatherFetcher {
 	}
 
 	public void execute() {
-		for (WeatherStation weatherStation : configuration.getWeatherStationList()) {
+		for (WeatherStation<?> weatherStation : configuration.getWeatherStationList()) {
 			try {
 				processSingleWeatherStation(weatherStation);
 			} catch (Exception e) {
@@ -32,7 +32,7 @@ public class WeatherFetcher {
 		}
 	}
 
-	private void processSingleWeatherStation(WeatherStation weatherStation) throws IOException, HttpException {
+	private void processSingleWeatherStation(WeatherStation<?> weatherStation) throws IOException, HttpException {
 		Measurement measurement = weatherStation.fetchMeasurement();
 		httpClient.sendHttpRequest(measurement);
 		log("Executed HTTP request: " + measurement.toVindSidenUrl());
