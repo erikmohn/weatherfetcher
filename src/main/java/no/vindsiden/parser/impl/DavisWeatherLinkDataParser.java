@@ -48,7 +48,7 @@ public class DavisWeatherLinkDataParser extends WeatherDataParser {
 	}
 	
 	private void initializeURLLocation() throws MalformedURLException {
-		url = new URL(((DavisWeatherLinkWeatherStation) getWeatherStation()).getDavisWeatherLinkUrl());
+		url = new URL(((DavisWeatherLinkWeatherStation) getWeatherStation()).getUrl());
 	}
 	
 	private void fetchDocument() throws IOException {
@@ -96,7 +96,7 @@ public class DavisWeatherLinkDataParser extends WeatherDataParser {
 	}
 	
 	private int parseDirection() {
-		String directionRaw = data.get("Wind Direction").get(1).replaceAll("\\D+","");;
+		String directionRaw = data.get("Wind Direction").get(1).replaceAll("\\D+","");
 		
 		return Integer.parseInt(directionRaw);
 	}

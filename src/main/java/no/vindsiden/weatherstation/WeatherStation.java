@@ -17,6 +17,8 @@ public abstract class WeatherStation<PARSER extends WeatherDataParser> {
 	private PARSER dataParser;
 	private int weatherStationId;
 	private String name;
+	private boolean enabled;
+	private String url;
 	
 	
 	public Class<PARSER> getParserClass() {
@@ -57,5 +59,26 @@ public abstract class WeatherStation<PARSER extends WeatherDataParser> {
 
 	public String getName() {
 		return name;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+	
+	@Override
+	public String toString() {
+		return getName();
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getUrl() {
+		return url;
 	}
 }

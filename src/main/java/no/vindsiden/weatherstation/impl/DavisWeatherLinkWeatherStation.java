@@ -8,18 +8,8 @@ import no.vindsiden.weatherstation.WeatherStation;
  */
 public class DavisWeatherLinkWeatherStation extends WeatherStation<DavisWeatherLinkDataParser> {
 	
-	private String davisWeatherLinkUrl;
-	
 	public DavisWeatherLinkWeatherStation(int id, String url, String name) {
 		super(id, DavisWeatherLinkDataParser.class, name);
-		davisWeatherLinkUrl = url;
-	}
-
-	public void setDavisWeatherLinkUrl(String davisWeatherLinkUrl) {
-		this.davisWeatherLinkUrl = davisWeatherLinkUrl;
-	}
-
-	public String getDavisWeatherLinkUrl() {
-		return davisWeatherLinkUrl;
+		setUrl(url);
 	}
 }

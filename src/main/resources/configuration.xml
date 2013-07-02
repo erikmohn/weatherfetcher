@@ -1,17 +1,41 @@
 <no.vindsiden.configuration.Configuration>
 	<vindSidenUrl>http://www.vindsiden.no/wrm.aspx</vindSidenUrl>
+	<timeToSleepBeforeErrorHandling>20000</timeToSleepBeforeErrorHandling>
 	<weatherStationList>
 		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
-			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
 			<name>Moss havn</name>
+			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
+			<enabled>true</enabled>
 			<weatherStationId>52</weatherStationId>
-			<davisBaseUrl>http://www.moss-havn.no/weather/upload/</davisBaseUrl>
+			<url>http://www.moss-havn.no/weather/upload/</url>
+		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
+		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
+			<name>iLarvik.net</name>
+			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
+			<enabled>false</enabled>
+			<weatherStationId>99</weatherStationId>
+			<url> http://www.ilarvik.net/wmr/</url>
+		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
+		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
+			<name>iStavern.net</name>
+			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
+			<enabled>false</enabled>
+			<weatherStationId>99</weatherStationId>
+			<url>http://www.istavern.net/stavern/</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
 		<no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation>
-			<parserClass>no.vindsiden.parser.impl.DavisWeatherLinkDataParser</parserClass>
 			<name>Srfsnosk8 Hvasser</name>
+			<parserClass>no.vindsiden.parser.impl.DavisWeatherLinkDataParser</parserClass>
+			<enabled>true</enabled>
 			<weatherStationId>51</weatherStationId>
-			<davisWeatherLinkUrl>http://www.weatherlink.com/user/srfsnosk8hvasser/index.php?view=summary&amp;amp;amp;headers=0</davisWeatherLinkUrl>
+			<url>http://www.weatherlink.com/user/srfsnosk8hvasser/index.php?view=summary&amp;amp;amp;headers=0</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation>
+		<no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation>
+			<name>Kystvind.no</name>
+			<parserClass>no.vindsiden.parser.impl.WeatherDisplayDataParser</parserClass>
+			<weatherStationId>99</weatherStationId>
+			<enabled>false</enabled>
+			<url>http://kystvind.no/</url>
+		</no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation>
 	</weatherStationList>
 </no.vindsiden.configuration.Configuration>

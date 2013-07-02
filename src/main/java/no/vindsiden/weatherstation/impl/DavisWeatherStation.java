@@ -5,18 +5,9 @@ import no.vindsiden.weatherstation.WeatherStation;
 
 public class DavisWeatherStation extends WeatherStation<DavisDataParser> {
 
-	private String davisBaseUrl;
+
 	
 	public DavisWeatherStation(int id, Class<DavisDataParser> clazz, String name) {
 		super(id, clazz, name);
 	}
-
-	public void setDavisBaseUrl(String davisBaseUrl) {
-		this.davisBaseUrl = davisBaseUrl;
-	}
-
-	public String getDavisBaseUrl() {
-		return davisBaseUrl;
-	}
-
 }

@@ -17,6 +17,7 @@ public class Configuration {
 
 	private String vindSidenUrl;
 	private List<WeatherStation<?>> weatherStationList;
+	private long timeToSleepBeforeErrorHandling;
 
 	public void addWeatherStation(WeatherStation<?> weatherStation) {
 		if (weatherStationList == null) {
@@ -40,6 +41,14 @@ public class Configuration {
 	public static Configuration getConfiguration() {
 		InputStream is = ClassLoader.getSystemResourceAsStream("configuration.xml");
 		return (Configuration) new XStream().fromXML(is);		
+	}
+
+	public void setTimeToSleepBeforeErrorHandling(long timeToSleepBeforeErrorHandling) {
+		this.timeToSleepBeforeErrorHandling = timeToSleepBeforeErrorHandling;
+	}
+
+	public long getTimeToSleepBeforeErrorHandling() {
+		return timeToSleepBeforeErrorHandling;
 	}
 	
 }

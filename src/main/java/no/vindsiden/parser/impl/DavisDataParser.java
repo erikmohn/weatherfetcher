@@ -61,7 +61,7 @@ public class DavisDataParser extends WeatherDataParser {
 	}
 
 	private void fetchDataFromWeatherStation() throws IOException, HttpException {
-		String url = ((DavisWeatherStation) getWeatherStation()).getDavisBaseUrl();
+		String url = ((DavisWeatherStation) getWeatherStation()).getUrl();
 		HttpClient httpClient = new HttpClient();
 		GetMethod method = new GetMethod(url + "/clientraw.txt");
 
