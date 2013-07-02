@@ -15,6 +15,7 @@ import com.thoughtworks.xstream.XStream;
  */
 public class Configuration {
 
+	private static Configuration configurationCache;
 	private String vindSidenUrl;
 	private List<WeatherStation<?>> weatherStationList;
 	private long timeToSleepBeforeErrorHandling;
@@ -39,8 +40,11 @@ public class Configuration {
 	}
 	
 	public static Configuration getConfiguration() {
-		InputStream is = ClassLoader.getSystemResourceAsStream("configuration.xml");
-		return (Configuration) new XStream().fromXML(is);		
+		if (configurationCache == null) {
+			InputStream is = ClassLoader.getSystemResourceAsStream("configuration.xml");
+			configurationCache = (Configuration) new XStream().fromXML(is);
+		}
+		return configurationCache;
 	}
 
 	public void setTimeToSleepBeforeErrorHandling(long timeToSleepBeforeErrorHandling) {

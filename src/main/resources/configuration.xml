@@ -12,15 +12,15 @@
 		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
 			<name>iLarvik.net</name>
 			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
-			<enabled>false</enabled>
-			<weatherStationId>99</weatherStationId>
+			<enabled>true</enabled>
+			<weatherStationId>54</weatherStationId>
 			<url> http://www.ilarvik.net/wmr/</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
 		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
 			<name>iStavern.net</name>
 			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
-			<enabled>false</enabled>
-			<weatherStationId>99</weatherStationId>
+			<enabled>true</enabled>
+			<weatherStationId>55</weatherStationId>
 			<url>http://www.istavern.net/stavern/</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
 		<no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation>
@@ -33,8 +33,8 @@
 		<no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation>
 			<name>Kystvind.no</name>
 			<parserClass>no.vindsiden.parser.impl.WeatherDisplayDataParser</parserClass>
-			<weatherStationId>99</weatherStationId>
-			<enabled>false</enabled>
+			<weatherStationId>53</weatherStationId>
+			<enabled>true</enabled>
 			<url>http://kystvind.no/</url>
 		</no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation>
 	</weatherStationList>
