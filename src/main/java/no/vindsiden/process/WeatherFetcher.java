@@ -2,9 +2,11 @@ package no.vindsiden.process;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import no.vindsiden.configuration.Configuration;
+import no.vindsiden.process.support.WeatherStationComparator;
 import no.vindsiden.vindsiden.Measurement;
 import no.vindsiden.vindsiden.VindsidenHttpClient;
 import no.vindsiden.weatherstation.WeatherStation;
@@ -42,6 +44,7 @@ public class WeatherFetcher {
 	}
 
 	private void processWeatherStations(List<WeatherStation<?>> weatherStations) {
+		Collections.sort(weatherStations, new WeatherStationComparator());
 		for (WeatherStation<?> weatherStation : weatherStations) {
 			try {
 				if(weatherStation.isEnabled()) {
