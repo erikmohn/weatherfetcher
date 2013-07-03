@@ -6,6 +6,7 @@ import java.util.TimeZone;
 
 import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.parser.impl.support.DavisDescription;
+import no.vindsiden.parser.impl.support.WeatherDataUnavailableException;
 import no.vindsiden.parser.impl.support.WindUnitType;
 import no.vindsiden.vindsiden.Measurement;
 import no.vindsiden.weatherstation.WeatherStation;
@@ -36,7 +37,11 @@ public class DavisDataParser extends WeatherDataParser {
 		return measurement;
 	}
 
-	private void parseWeatherData() {
+	private void parseWeatherData()  {		
+		if (data.length < DavisDescription.AVG_WIND_SPEED_10_MINUTES.getIndex()) {
+			throw new WeatherDataUnavailableException("Davis WeatherData not available");
+		}
+		
 		Measurement m = new Measurement();
 		m.setStationID(getWeatherStation().getWeatherStationId());	
 		m.setTime(new DateTime(DateTimeZone.forTimeZone(TimeZone.getTimeZone("Europe/Oslo"))));
