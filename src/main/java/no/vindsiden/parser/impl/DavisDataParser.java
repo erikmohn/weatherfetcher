@@ -1,6 +1,7 @@
 package no.vindsiden.parser.impl;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.TimeZone;
 
 import no.vindsiden.parser.WeatherDataParser;
@@ -41,8 +42,8 @@ public class DavisDataParser extends WeatherDataParser {
 		m.setTime(new DateTime(DateTimeZone.forTimeZone(TimeZone.getTimeZone("Europe/Oslo"))));
 
 		Double avgWindSpeed = getWindSpeed(Double.parseDouble(data[DavisDescription.AVG_WIND_SPEED_10_MINUTES.getIndex()])); 
-		Double windSpeed = Double.parseDouble(data[DavisDescription.AVG_WIND_SPEED.getIndex()]);
-		Double maxWindSpeed = Double.parseDouble(data[DavisDescription.GUSTS.getIndex()]);
+		Double windSpeed = getWindSpeed(Double.parseDouble(data[DavisDescription.AVG_WIND_SPEED.getIndex()]));
+		Double maxWindSpeed = getWindSpeed(Double.parseDouble(data[DavisDescription.GUSTS.getIndex()]));
 			
 		m.setWindAvg(avgWindSpeed);
 		m.setWindMin(NumberUtils.min(avgWindSpeed, maxWindSpeed, windSpeed));
@@ -62,10 +63,12 @@ public class DavisDataParser extends WeatherDataParser {
 	}
 
 	private Double getWindSpeed(double windSpeed) {
+		double ws = windSpeed;
 		if (WindUnitType.KNOTS.equals(((DavisWeatherStation)getWeatherStation()).getWindUnitType())) {
-			return windSpeed * 0.5144;
+			ws = windSpeed * 0.5144;
 		}
-		return null;
+		BigDecimal wsBigDecimal = new BigDecimal(ws).setScale(1, BigDecimal.ROUND_UP);
+		return wsBigDecimal.doubleValue();
 	}
 
 	private void fetchDataFromWeatherStation() throws IOException, HttpException {
