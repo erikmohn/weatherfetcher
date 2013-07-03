@@ -10,6 +10,7 @@ import no.vindsiden.vindsiden.Measurement;
 import no.vindsiden.weatherstation.WeatherStation;
 import no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -40,6 +41,7 @@ public class WeatherDisplayDataParser extends WeatherDataParser {
 		Element e = document.getElementById("ajaxwinddir");
 		System.out.println("DEBUG: " + e);
 		System.out.println("DEBUG: " + e.text());
+		System.out.println("DEBUG: " + StringEscapeUtils.unescapeHtml(e.text()));
 		measurement.setDirectionAvg(WindDirection.getWindDirectionFromString(document.getElementById("ajaxwinddir").text()));
 		measurement.setWindMin(parseDoubleText(document.getElementById("ajaxwind").text()));
 		measurement.setWindAvg(parseDoubleText(document.getElementById("ajaxwind").text()));
