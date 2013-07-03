@@ -37,10 +37,12 @@ public class WeatherDisplayDataParser extends WeatherDataParser {
 		String temperatureString = document.getElementById("ajaxtemp").text();
 		measurement.setStationID(getWeatherStation().getWeatherStationId());
 		measurement.setTemperature1(parseDoubleText(temperatureString.substring(0, temperatureString.length() - 2)));	
+		
+		//Hack to be able to parse winddirections with Norwegian character: Ø
 		Element e = document.getElementById("ajaxwinddir");
-		//Hack to be able to parse winddirections with Norwegian characters
 		String elementString = e.toString().replace("&Oslash;", "Ø");
 		String direction = elementString.substring(elementString.indexOf(">") + 1, elementString.indexOf("<", elementString.indexOf(">")));
+
 		measurement.setDirectionAvg(WindDirection.getWindDirectionFromString(direction));
 		measurement.setWindMin(parseDoubleText(document.getElementById("ajaxwind").text()));
 		measurement.setWindAvg(parseDoubleText(document.getElementById("ajaxwind").text()));

@@ -5,6 +5,7 @@ import java.util.TimeZone;
 
 import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.parser.impl.support.DavisDescription;
+import no.vindsiden.parser.impl.support.WindUnitType;
 import no.vindsiden.vindsiden.Measurement;
 import no.vindsiden.weatherstation.WeatherStation;
 import no.vindsiden.weatherstation.impl.DavisWeatherStation;
@@ -39,7 +40,7 @@ public class DavisDataParser extends WeatherDataParser {
 		m.setStationID(getWeatherStation().getWeatherStationId());	
 		m.setTime(new DateTime(DateTimeZone.forTimeZone(TimeZone.getTimeZone("Europe/Oslo"))));
 
-		Double avgWindSpeed = Double.parseDouble(data[DavisDescription.AVG_WIND_SPEED_10_MINUTES.getIndex()]); 
+		Double avgWindSpeed = getWindSpeed(Double.parseDouble(data[DavisDescription.AVG_WIND_SPEED_10_MINUTES.getIndex()])); 
 		Double windSpeed = Double.parseDouble(data[DavisDescription.AVG_WIND_SPEED.getIndex()]);
 		Double maxWindSpeed = Double.parseDouble(data[DavisDescription.GUSTS.getIndex()]);
 			
@@ -58,6 +59,13 @@ public class DavisDataParser extends WeatherDataParser {
 		m.setBattery(-999.0);
 		
 		measurement = m;
+	}
+
+	private Double getWindSpeed(double windSpeed) {
+		if (WindUnitType.KNOTS.equals(((DavisWeatherStation)getWeatherStation()).getWindUnitType())) {
+			return windSpeed * 0.5144;
+		}
+		return null;
 	}
 
 	private void fetchDataFromWeatherStation() throws IOException, HttpException {
