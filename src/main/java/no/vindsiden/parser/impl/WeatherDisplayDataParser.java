@@ -41,8 +41,9 @@ public class WeatherDisplayDataParser extends WeatherDataParser {
 		Element e = document.getElementById("ajaxwinddir");
 		System.out.println("DEBUG: " + e);
 		System.out.println("DEBUG: " + e.text());
+		System.out.println("DEBUG: " + StringEscapeUtils.unescapeHtml(e.toString()));
 		System.out.println("DEBUG: " + StringEscapeUtils.unescapeHtml(e.text()));
-		measurement.setDirectionAvg(WindDirection.getWindDirectionFromString(document.getElementById("ajaxwinddir").text()));
+		measurement.setDirectionAvg(WindDirection.getWindDirectionFromString(StringEscapeUtils.unescapeHtml(document.getElementById("ajaxwinddir").text())));
 		measurement.setWindMin(parseDoubleText(document.getElementById("ajaxwind").text()));
 		measurement.setWindAvg(parseDoubleText(document.getElementById("ajaxwind").text()));
 		String windGust = document.getElementById("ajaxgust").text();
