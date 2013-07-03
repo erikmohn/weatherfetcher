@@ -12,6 +12,7 @@ import no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 public class WeatherDisplayDataParser extends WeatherDataParser {
 
@@ -36,6 +37,9 @@ public class WeatherDisplayDataParser extends WeatherDataParser {
 		String temperatureString = document.getElementById("ajaxtemp").text();
 		measurement.setStationID(getWeatherStation().getWeatherStationId());
 		measurement.setTemperature1(parseDoubleText(temperatureString.substring(0, temperatureString.length() - 2)));	
+		Element e = document.getElementById("ajaxwinddir");
+		System.out.println("DEBUG: " + e);
+		System.out.println("DEBUG: " + e.text());
 		measurement.setDirectionAvg(WindDirection.getWindDirectionFromString(document.getElementById("ajaxwinddir").text()));
 		measurement.setWindMin(parseDoubleText(document.getElementById("ajaxwind").text()));
 		measurement.setWindAvg(parseDoubleText(document.getElementById("ajaxwind").text()));
