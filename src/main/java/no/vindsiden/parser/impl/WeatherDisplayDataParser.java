@@ -10,7 +10,6 @@ import no.vindsiden.vindsiden.Measurement;
 import no.vindsiden.weatherstation.WeatherStation;
 import no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation;
 
-import org.apache.commons.lang.StringEscapeUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -39,11 +38,10 @@ public class WeatherDisplayDataParser extends WeatherDataParser {
 		measurement.setStationID(getWeatherStation().getWeatherStationId());
 		measurement.setTemperature1(parseDoubleText(temperatureString.substring(0, temperatureString.length() - 2)));	
 		Element e = document.getElementById("ajaxwinddir");
-		System.out.println("DEBUG: " + e);
-		System.out.println("DEBUG: " + e.text());
-		System.out.println("DEBUG: " + StringEscapeUtils.unescapeHtml(e.toString()));
-		System.out.println("DEBUG: " + StringEscapeUtils.unescapeHtml(e.text()));
-		measurement.setDirectionAvg(WindDirection.getWindDirectionFromString(StringEscapeUtils.unescapeHtml(document.getElementById("ajaxwinddir").text())));
+		//Hack to be able to parse winddirections with Norwegian characters
+		String elementString = e.toString().replace("&Oslash;", "Ø");
+		String direction = elementString.substring(elementString.indexOf(">") + 1, elementString.indexOf("<", elementString.indexOf(">")));
+		measurement.setDirectionAvg(WindDirection.getWindDirectionFromString(direction));
 		measurement.setWindMin(parseDoubleText(document.getElementById("ajaxwind").text()));
 		measurement.setWindAvg(parseDoubleText(document.getElementById("ajaxwind").text()));
 		String windGust = document.getElementById("ajaxgust").text();
