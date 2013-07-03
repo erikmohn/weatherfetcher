@@ -14,7 +14,7 @@
 			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
 			<enabled>true</enabled>
 			<weatherStationId>54</weatherStationId>
-			<url> http://www.ilarvik.net/wmr/</url>
+			<url>http://www.ilarvik.net/wmr/</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
 		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
 			<name>iStavern.net</name>
@@ -31,9 +31,9 @@
 			<url>http://www.weatherlink.com/user/srfsnosk8hvasser/index.php?view=summary&amp;amp;amp;headers=0</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation>
 		<no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation>
-			<name>Kystvind.no</name>
 			<parserClass>no.vindsiden.parser.impl.WeatherDisplayDataParser</parserClass>
 			<weatherStationId>53</weatherStationId>
+			<name>Kystvind</name>
 			<enabled>true</enabled>
 			<url>http://kystvind.no/</url>
 		</no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation>

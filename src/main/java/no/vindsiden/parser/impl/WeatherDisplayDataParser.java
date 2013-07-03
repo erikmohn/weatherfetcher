@@ -34,6 +34,7 @@ public class WeatherDisplayDataParser extends WeatherDataParser {
 	private void parseMeasurement() {
 		measurement = new Measurement();
 		String temperatureString = document.getElementById("ajaxtemp").text();
+		measurement.setStationID(getWeatherStation().getWeatherStationId());
 		measurement.setTemperature1(parseDoubleText(temperatureString.substring(0, temperatureString.length() - 2)));	
 		measurement.setDirectionAvg(WindDirection.getWindDirectionFromString(document.getElementById("ajaxwinddir").text()));
 		measurement.setWindMin(parseDoubleText(document.getElementById("ajaxwind").text()));
@@ -51,6 +52,6 @@ public class WeatherDisplayDataParser extends WeatherDataParser {
 	}
 	
 	private void fetchDocument() throws IOException {
-		document = Jsoup.parse(url.openStream(), "UTF-8", ((WeatherDisplayWeatherStation) getWeatherStation()).getUrl());
+		document = Jsoup.parse(url.openStream(), "CP1252", ((WeatherDisplayWeatherStation) getWeatherStation()).getUrl());
 	}
 }

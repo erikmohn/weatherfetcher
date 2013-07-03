@@ -12,6 +12,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import com.thoughtworks.xstream.XStream;
+
 
 /**
  * @author Erik Mohn - mohn.erik@gmail.com
@@ -46,7 +48,7 @@ public class WeatherFetcherTest {
 		config.addWeatherStation(ws2);
 		config.addWeatherStation(ws3);
 		
-//		System.out.println(new XStream().toXML(config));
+		System.out.println(new XStream().toXML(config));
 		
 		fetcher = new WeatherFetcher(Configuration.getConfiguration());
 		fetcher.setHttpClient(vindsidenHttpClientMock);
