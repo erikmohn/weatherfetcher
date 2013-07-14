@@ -4,7 +4,7 @@
 	<weatherStationList>
 		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
 			<name>Moss havn</name>
-			<windUnitType>MS</windUnitType>
+			<windUnitType>KNOTS</windUnitType>
 			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
 			<enabled>true</enabled>
 			<weatherStationId>52</weatherStationId>
@@ -12,7 +12,7 @@
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
 		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
 			<name>iLarvik.net</name>
-			<windUnitType>MS</windUnitType>
+			<windUnitType>KNOTS</windUnitType>
 			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
 			<enabled>true</enabled>
 			<weatherStationId>54</weatherStationId>
@@ -40,5 +40,12 @@
 			<enabled>true</enabled>
 			<url>http://kystvind.no/</url>
 		</no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation>
+		<no.vindsiden.weatherstation.impl.NortekWeatherStation>
+			<parserClass>no.vindsiden.parser.impl.NortekDataParser</parserClass>
+			<weatherStationId>56</weatherStationId>
+			<name>Steilene</name>
+			<enabled>true</enabled>
+			<url>http://aos.nortek.no/Data/Index/f63e9bad</url>
+		</no.vindsiden.weatherstation.impl.NortekWeatherStation>
 	</weatherStationList>
 </no.vindsiden.configuration.Configuration>

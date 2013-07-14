@@ -1,5 +1,7 @@
 package no.vindsiden.vindsiden;
 
+import java.text.DecimalFormat;
+
 import org.joda.time.DateTime;
 import org.joda.time.format.ISODateTimeFormat;
 
@@ -159,13 +161,16 @@ public class Measurement {
 	}
 	
 	public String toVindSidenUrl() {
+		
+		DecimalFormat df = new DecimalFormat("#.#");
+		
 		return "http://www.vindsiden.no/wrm.aspx"
 				+ "?v=0"
 				+ "&CC=314"
 				+ "&Id=" + getStationID()
-				+ "&Wind=" + getWindAvg()  
-				+ "&WindMin=" + getWindMin()
-				+ "&WindMax=" + getWindMax()
+				+ "&Wind=" + df.format(getWindAvg())  
+				+ "&WindMin=" + df.format(getWindMin())
+				+ "&WindMax=" + df.format(getWindMax())
 				+ "&Dir=" + getDirectionAvg()
 				+ "&Temp1=" + getTemperature1();
 	}

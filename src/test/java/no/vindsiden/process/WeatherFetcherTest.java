@@ -1,11 +1,13 @@
 package no.vindsiden.process;
 import no.vindsiden.configuration.Configuration;
 import no.vindsiden.parser.impl.DavisDataParser;
+import no.vindsiden.parser.impl.NortekDataParser;
 import no.vindsiden.parser.impl.WeatherDisplayDataParser;
 import no.vindsiden.parser.impl.support.WindUnitType;
 import no.vindsiden.vindsiden.VindsidenHttpClient;
 import no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation;
 import no.vindsiden.weatherstation.impl.DavisWeatherStation;
+import no.vindsiden.weatherstation.impl.NortekWeatherStation;
 import no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation;
 
 import org.junit.Before;
@@ -46,11 +48,16 @@ public class WeatherFetcherTest {
 		ws3.setUrl("http://kystvind.no/");
 		ws3.setEnabled(true);
 		
-		config.addWeatherStation(ws);
-		config.addWeatherStation(ws2);
-		config.addWeatherStation(ws3);
+		NortekWeatherStation ws4 = new NortekWeatherStation(56, NortekDataParser.class, "Steilene");
+		ws4.setEnabled(true);
+		ws4.setUrl("http://www.steilene.nortek.no/");
 		
-		System.out.println(new XStream().toXML(config));
+//		config.addWeatherStation(ws);
+//		config.addWeatherStation(ws2);
+//		config.addWeatherStation(ws3);
+		config.addWeatherStation(ws4);
+		
+//		System.out.println(new XStream().toXML(config));
 		
 		fetcher = new WeatherFetcher(Configuration.getConfiguration());
 		fetcher.setHttpClient(vindsidenHttpClientMock);
