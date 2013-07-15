@@ -47,5 +47,13 @@
 			<enabled>true</enabled>
 			<url>http://aos.nortek.no/Data/Index/f63e9bad</url>
 		</no.vindsiden.weatherstation.impl.NortekWeatherStation>
+		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
+			<name>Tromsø Havn</name>
+			<windUnitType>KNOTS</windUnitType>
+			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
+			<enabled>true</enabled>
+			<weatherStationId>57</weatherStationId>
+			<url>http://tromsohavn.no/wewind/</url>
+		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
 	</weatherStationList>
 </no.vindsiden.configuration.Configuration>
