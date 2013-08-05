@@ -77,7 +77,7 @@
 			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
 			<enabled>true</enabled>
 			<weatherStationId>59</weatherStationId>
-			<url>http://raa.no/weather/</url>
+			<url>http://www.nodeland.no/raasport</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
 	</weatherStationList>
 </no.vindsiden.configuration.Configuration>

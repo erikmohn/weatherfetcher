@@ -1,4 +1,7 @@
 package no.vindsiden.process;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import no.vindsiden.configuration.Configuration;
 import no.vindsiden.parser.impl.DavisDataParser;
 import no.vindsiden.parser.impl.NortekDataParser;
@@ -29,7 +32,7 @@ public class WeatherFetcherTest {
 	private VindsidenHttpClient vindsidenHttpClientMock;
 	
 	@Before
-	public void setUp() {
+	public void setUp() throws UnsupportedEncodingException {
 		MockitoAnnotations.initMocks(this);		
 		
 		Configuration config = new Configuration();
@@ -51,15 +54,21 @@ public class WeatherFetcherTest {
 		NortekWeatherStation ws4 = new NortekWeatherStation(56, NortekDataParser.class, "Steilene");
 		ws4.setEnabled(true);
 		ws4.setUrl("http://www.steilene.nortek.no/");
+
+		DavisWeatherStation ws5 = new DavisWeatherStation(52, DavisDataParser.class, "Torkildstranda");
+		ws5.setUrl("http://www.nodeland.no/raasport");
+		ws5.setEnabled(true);
+		ws5.setWindUnitType(WindUnitType.KNOTS);
 		
 //		config.addWeatherStation(ws);
 //		config.addWeatherStation(ws2);
 //		config.addWeatherStation(ws3);
-		config.addWeatherStation(ws4);
+//		config.addWeatherStation(ws4);
+		config.addWeatherStation(ws5);
 		
 //		System.out.println(new XStream().toXML(config));
 		
-		fetcher = new WeatherFetcher(Configuration.getConfiguration());
+		fetcher = new WeatherFetcher(config);
 		fetcher.setHttpClient(vindsidenHttpClientMock);
 	}
 	

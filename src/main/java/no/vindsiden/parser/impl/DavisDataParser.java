@@ -2,6 +2,7 @@ package no.vindsiden.parser.impl;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.net.URLEncoder;
 import java.util.TimeZone;
 
 import no.vindsiden.parser.WeatherDataParser;
