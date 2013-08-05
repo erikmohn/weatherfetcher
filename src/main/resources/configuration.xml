@@ -2,6 +2,7 @@
 	<vindSidenUrl>http://www.vindsiden.no/wrm.aspx</vindSidenUrl>
 	<timeToSleepBeforeErrorHandling>20000</timeToSleepBeforeErrorHandling>
 	<weatherStationList>
+		
 		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
 			<name>Moss havn</name>
 			<windUnitType>KNOTS</windUnitType>
@@ -10,6 +11,7 @@
 			<weatherStationId>52</weatherStationId>
 			<url>http://www.moss-havn.no/weather/upload/</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
+		
 		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
 			<name>iLarvik.net</name>
 			<windUnitType>KNOTS</windUnitType>
@@ -18,6 +20,7 @@
 			<weatherStationId>54</weatherStationId>
 			<url>http://www.ilarvik.net/wmr/</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
+		
 		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
 			<name>iStavern.net</name>
 			<windUnitType>KNOTS</windUnitType>
@@ -26,6 +29,7 @@
 			<weatherStationId>55</weatherStationId>
 			<url>http://www.istavern.net/stavern/</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
+		
 		<no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation>
 			<name>Srfsnosk8 Hvasser</name>
 			<parserClass>no.vindsiden.parser.impl.DavisWeatherLinkDataParser</parserClass>
@@ -33,6 +37,15 @@
 			<weatherStationId>51</weatherStationId>
 			<url>http://www.weatherlink.com/user/srfsnosk8hvasser/index.php?view=summary&amp;amp;amp;headers=0</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation>
+
+		<no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation>
+			<name>Rolfstangen</name>
+			<parserClass>no.vindsiden.parser.impl.DavisWeatherLinkDataParser</parserClass>
+			<enabled>true</enabled>
+			<weatherStationId>58</weatherStationId>
+			<url>http://www.weatherlink.com/user/lbk/index.php?view=summary&amp;amp;amp;headers=0</url>
+		</no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation>
+
 		<no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation>
 			<parserClass>no.vindsiden.parser.impl.WeatherDisplayDataParser</parserClass>
 			<weatherStationId>53</weatherStationId>
@@ -40,6 +53,7 @@
 			<enabled>true</enabled>
 			<url>http://kystvind.no/</url>
 		</no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation>
+		
 		<no.vindsiden.weatherstation.impl.NortekWeatherStation>
 			<parserClass>no.vindsiden.parser.impl.NortekDataParser</parserClass>
 			<weatherStationId>56</weatherStationId>
@@ -47,6 +61,7 @@
 			<enabled>true</enabled>
 			<url>http://aos.nortek.no/Data/Index/f63e9bad</url>
 		</no.vindsiden.weatherstation.impl.NortekWeatherStation>
+		
 		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
 			<name>Tromsø Havn</name>
 			<windUnitType>KNOTS</windUnitType>
@@ -54,6 +69,15 @@
 			<enabled>true</enabled>
 			<weatherStationId>57</weatherStationId>
 			<url>http://tromsohavn.no/wewind/</url>
+		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
+		
+		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
+			<name>Torkildstranda</name>
+			<windUnitType>KNOTS</windUnitType>
+			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
+			<enabled>true</enabled>
+			<weatherStationId>59</weatherStationId>
+			<url>http://raa.no/weather/</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
 	</weatherStationList>
 </no.vindsiden.configuration.Configuration>
