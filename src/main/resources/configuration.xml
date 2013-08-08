@@ -75,7 +75,7 @@
 			<name>Torkildstranda</name>
 			<windUnitType>KNOTS</windUnitType>
 			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
-			<enabled>true</enabled>
+			<enabled>false</enabled>
 			<weatherStationId>59</weatherStationId>
 			<url>http://www.nodeland.no/raasport</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
