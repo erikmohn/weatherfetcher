@@ -9,7 +9,7 @@
 			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
 			<enabled>true</enabled>
 			<weatherStationId>52</weatherStationId>
-			<url>http://www.moss-havn.no/weather/upload/</url>
+			<url>http://weather.moss-havn.no/</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
 		
 		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
