@@ -76,8 +76,18 @@
 			<windUnitType>KNOTS</windUnitType>
 			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
 			<enabled>false</enabled>
-			<weatherStationId>59</weatherStationId>
+			<weatherStationId>XX</weatherStationId>
 			<url>http://www.nodeland.no/raasport</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
+
+		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
+			<name>Fuglevik baathavn</name>
+			<windUnitType>KNOTS</windUnitType>
+			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
+			<enabled>true</enabled>
+			<weatherStationId>59</weatherStationId>
+			<url>http://www.ryggebf.no/weather</url>
+		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
+		
 	</weatherStationList>
 </no.vindsiden.configuration.Configuration>
