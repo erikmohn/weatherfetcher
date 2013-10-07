@@ -76,7 +76,7 @@
 			<windUnitType>KNOTS</windUnitType>
 			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
 			<enabled>false</enabled>
-			<weatherStationId>XX</weatherStationId>
+			<weatherStationId>-1</weatherStationId>
 			<url>http://www.nodeland.no/raasport</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
 
