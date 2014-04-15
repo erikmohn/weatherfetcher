@@ -38,7 +38,16 @@
 			<weatherStationId>61</weatherStationId>
 			<url>http://www.gunnarbu.com/var/</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
-		
+
+		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
+			<name>haglevsworld.no</name>
+			<windUnitType>KNOTS</windUnitType>
+			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
+			<enabled>true</enabled>
+			<weatherStationId>62</weatherStationId>
+			<url>http://www.nodeland.no/raasport/</url>
+		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
+
 		<no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation>
 			<name>Srfsnosk8 Hvasser</name>
 			<parserClass>no.vindsiden.parser.impl.DavisWeatherLinkDataParser</parserClass>
