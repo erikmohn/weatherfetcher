@@ -29,6 +29,15 @@
 			<weatherStationId>55</weatherStationId>
 			<url>http://www.istavern.net/stavern/</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
+
+		<no.vindsiden.weatherstation.impl.DavisWeatherStation>
+			<name>gunnarbu.com</name>
+			<windUnitType>KNOTS</windUnitType>
+			<parserClass>no.vindsiden.parser.impl.DavisDataParser</parserClass>
+			<enabled>true</enabled>
+			<weatherStationId>61</weatherStationId>
+			<url>http://www.gunnarbu.com/var/</url>
+		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
 		
 		<no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation>
 			<name>Srfsnosk8 Hvasser</name>
