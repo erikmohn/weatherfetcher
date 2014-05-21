@@ -61,7 +61,6 @@
 			<parserClass>no.vindsiden.parser.impl.DavisWeatherLinkDataParser</parserClass>
 			<enabled>true</enabled>
 			<weatherStationId>58</weatherStationId>
-			<url>http://www.weatherlink.com/user/lbk/index.php?view=summary&headers=1
 			<url>http://www.weatherlink.com/user/lbk/index.php?view=summary&amp;amp;amp;headers=0</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation>
 
