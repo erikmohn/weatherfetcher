@@ -1,6 +1,5 @@
 package no.vindsiden.process;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 import no.vindsiden.configuration.Configuration;
 import no.vindsiden.parser.impl.DavisDataParser;
@@ -10,6 +9,7 @@ import no.vindsiden.parser.impl.support.WindUnitType;
 import no.vindsiden.vindsiden.VindsidenHttpClient;
 import no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation;
 import no.vindsiden.weatherstation.impl.DavisWeatherStation;
+import no.vindsiden.weatherstation.impl.HolfuyWeatherStation;
 import no.vindsiden.weatherstation.impl.NortekWeatherStation;
 import no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation;
 
@@ -64,9 +64,12 @@ public class WeatherFetcherTest {
 //		config.addWeatherStation(ws2);
 //		config.addWeatherStation(ws3);
 //		config.addWeatherStation(ws4);
-		config.addWeatherStation(ws5);
 		
-//		System.out.println(new XStream().toXML(config));
+		HolfuyWeatherStation h = new HolfuyWeatherStation(123, "http://holfuy.hu/en/takeit/vindsiden.php", "Foo");
+		h.setEnabled(true);
+		config.addWeatherStation(h);
+		
+		System.out.println(new XStream().toXML(config));
 		
 		fetcher = new WeatherFetcher(config);
 		fetcher.setHttpClient(vindsidenHttpClientMock);

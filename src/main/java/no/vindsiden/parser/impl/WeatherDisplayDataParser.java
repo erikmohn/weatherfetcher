@@ -3,6 +3,7 @@ package no.vindsiden.parser.impl;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.parser.impl.support.WindDirection;
@@ -13,6 +14,8 @@ import no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+
+import com.google.common.collect.Lists;
 
 public class WeatherDisplayDataParser extends WeatherDataParser {
 
@@ -25,11 +28,11 @@ public class WeatherDisplayDataParser extends WeatherDataParser {
 	}
 	
 	@Override
-	public Measurement fetchMeasurement() throws IOException {	
+	public List<Measurement> fetchMeasurement() throws IOException {	
 		initializeURLLocation();
 		fetchDocument();
 		parseMeasurement();
-		return measurement;
+		return Lists.newArrayList(measurement);
 	}
 	
 	private void parseMeasurement() {

@@ -22,6 +22,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.google.common.collect.Lists;
+
 
 /**
  * @author Erik Mohn - mohn.erik@gmail.com
@@ -39,12 +41,12 @@ public class DavisWeatherLinkDataParser extends WeatherDataParser {
 	}
 
 	@Override
-	public Measurement fetchMeasurement() throws IOException {
+	public List<Measurement> fetchMeasurement() throws IOException {
 		initializeURLLocation();
 		fetchDocument();
 		parseDocument();
 		parseMeasurement();
-		return measurement;
+		return Lists.newArrayList(measurement);
 	}
 	
 	private void initializeURLLocation() throws MalformedURLException {

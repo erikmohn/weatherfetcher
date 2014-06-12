@@ -1,6 +1,7 @@
 package no.vindsiden.parser;
 
 import java.io.IOException;
+import java.util.List;
 
 import no.vindsiden.vindsiden.Measurement;
 import no.vindsiden.weatherstation.WeatherStation;
@@ -14,7 +15,7 @@ public abstract class WeatherDataParser {
 
 	private WeatherStation<?> weatherStation;
 	
-	public abstract Measurement fetchMeasurement() throws IOException;
+	public abstract List<Measurement> fetchMeasurement() throws IOException;
 
 	public void setWeatherStation(WeatherStation<?> weatherStation) {
 		this.weatherStation =  weatherStation;

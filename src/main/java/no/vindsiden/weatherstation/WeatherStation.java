@@ -1,6 +1,9 @@
 package no.vindsiden.weatherstation;
 
 import java.io.IOException;
+import java.util.List;
+
+import com.google.common.collect.Lists;
 
 import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.parser.WeatherDataParserFactory;
@@ -32,9 +35,9 @@ public abstract class WeatherStation<PARSER extends WeatherDataParser> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Measurement fetchMeasurement() throws IOException {
+	public List<Measurement> fetchMeasurement() throws IOException {
 		dataParser = (PARSER) WeatherDataParserFactory.getInstance(this);
-		return dataParser.fetchMeasurement();
+		return Lists.newArrayList(dataParser.fetchMeasurement());
 	}
 	
 	public void setWeatherStationId(int weatherStationId) {

@@ -2,7 +2,7 @@ package no.vindsiden.parser.impl;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.net.URLEncoder;
+import java.util.List;
 import java.util.TimeZone;
 
 import no.vindsiden.parser.WeatherDataParser;
@@ -20,6 +20,8 @@ import org.apache.commons.lang.math.NumberUtils;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 
+import com.google.common.collect.Lists;
+
 public class DavisDataParser extends WeatherDataParser {
 
 	private String[] data;
@@ -30,12 +32,12 @@ public class DavisDataParser extends WeatherDataParser {
 	}
 
 	@Override
-	public Measurement fetchMeasurement() throws IOException {
+	public List<Measurement> fetchMeasurement() throws IOException {
 		fetchDataFromWeatherStation();
 
 		parseWeatherData();
 		
-		return measurement;
+		return Lists.newArrayList(measurement);
 	}
 
 	private void parseWeatherData()  {		

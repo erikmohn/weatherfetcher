@@ -1,0 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+		<HolfuyWeatherXML>
+				  <WeatherMeasurement>
+					<station id="s119" location="Hvit., Brudeberget" /> 
+					<timestamp date="2014-06-12" time="13:21:55" />
+					<wind speed="5" gust="13" dir="8" unit="km/h" />
+					<temp temp="15.3" unit="C" />
+				  </WeatherMeasurement>
+	</HolfuyWeatherXML>

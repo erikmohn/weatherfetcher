@@ -116,5 +116,13 @@
 			<url>http://www.ryggebf.no/weather</url>
 		</no.vindsiden.weatherstation.impl.DavisWeatherStation>
 		
+		<no.vindsiden.weatherstation.impl.HolfuyWeatherStation>
+      		<parserClass>no.vindsiden.parser.impl.HolfuyDataParser</parserClass>
+      		<weatherStationId>-1</weatherStationId>
+      		<name>Holfuy</name>
+      		<enabled>true</enabled>
+      	<url>http://holfuy.hu/en/takeit/vindsiden.php</url>
+    </no.vindsiden.weatherstation.impl.HolfuyWeatherStation>
+		
 	</weatherStationList>
 </no.vindsiden.configuration.Configuration>

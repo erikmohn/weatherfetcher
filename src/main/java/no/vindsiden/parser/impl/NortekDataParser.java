@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.List;
 
 import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.vindsiden.Measurement;
@@ -15,6 +16,8 @@ import no.vindsiden.weatherstation.WeatherStation;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.google.common.collect.Lists;
+
 public class NortekDataParser extends WeatherDataParser {
 	
 	public NortekDataParser(WeatherStation<NortekDataParser> weatherStation) {
@@ -22,7 +25,7 @@ public class NortekDataParser extends WeatherDataParser {
 	}
 	
 	@Override
-	public Measurement fetchMeasurement() throws IOException {
+	public List<Measurement> fetchMeasurement() throws IOException {
 		Measurement m = null;
 		try {
 			JSONObject json = readJsonFromUrl(getWeatherStation().getUrl());
@@ -39,7 +42,7 @@ public class NortekDataParser extends WeatherDataParser {
 			e.printStackTrace();
 		}
 		
-		return m;
+		return Lists.newArrayList(m);
 	}
 	
 	  public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
