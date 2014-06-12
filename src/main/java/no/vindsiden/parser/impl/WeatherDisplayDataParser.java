@@ -9,7 +9,6 @@ import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.parser.impl.support.WindDirection;
 import no.vindsiden.vindsiden.Measurement;
 import no.vindsiden.weatherstation.WeatherStation;
-import no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -23,8 +22,8 @@ public class WeatherDisplayDataParser extends WeatherDataParser {
 	private URL url;
 	private Measurement measurement;
 	
-	public WeatherDisplayDataParser(WeatherStation<WeatherDisplayDataParser> weatherStation)  {
-		setWeatherStation(weatherStation);
+	public WeatherDisplayDataParser(WeatherStation weatherStation)  {
+		super(weatherStation);
 	}
 	
 	@Override
@@ -58,10 +57,10 @@ public class WeatherDisplayDataParser extends WeatherDataParser {
 	}
 	
 	private void initializeURLLocation() throws MalformedURLException {
-		url = new URL(((WeatherDisplayWeatherStation) getWeatherStation()).getUrl());
+		url = new URL(getWeatherStation().getUrl());
 	}
 	
 	private void fetchDocument() throws IOException {
-		document = Jsoup.parse(url.openStream(), "CP1252", ((WeatherDisplayWeatherStation) getWeatherStation()).getUrl());
+		document = Jsoup.parse(url.openStream(), "CP1252", getWeatherStation().getUrl());
 	}
 }

@@ -6,22 +6,28 @@ import no.vindsiden.parser.impl.HolfuyDataParser;
 import no.vindsiden.parser.impl.NortekDataParser;
 import no.vindsiden.parser.impl.WeatherDisplayDataParser;
 import no.vindsiden.weatherstation.WeatherStation;
+import no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation;
+import no.vindsiden.weatherstation.impl.DavisWeatherStation;
+import no.vindsiden.weatherstation.impl.HolfuyWeatherStation;
+import no.vindsiden.weatherstation.impl.NortekWeatherStation;
+import no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation;
 
 
 public class WeatherDataParserFactory {
 
-	@SuppressWarnings("unchecked")
-	public static WeatherDataParser getInstance(WeatherStation<?> weatherStation) {
+
+	public static WeatherDataParser getInstance(WeatherStation weatherStation) {
 		WeatherDataParser parser = null;
-		if (weatherStation.getParserClass().toString().equals(DavisWeatherLinkDataParser.class.toString())) {
-				parser = new DavisWeatherLinkDataParser((WeatherStation<DavisWeatherLinkDataParser>) weatherStation);				
-		}  else if (weatherStation.getParserClass().toString().equals(DavisDataParser.class.toString())) {
-			parser = new DavisDataParser((WeatherStation<DavisDataParser>) weatherStation);
-		} else if (weatherStation.getParserClass().toString().equals(WeatherDisplayDataParser.class.toString())) {
-			parser = new WeatherDisplayDataParser((WeatherStation<WeatherDisplayDataParser>) weatherStation);
-		} else if (weatherStation.getParserClass().toString().equals(NortekDataParser.class.toString())) {
-			parser = new NortekDataParser((WeatherStation<NortekDataParser>) weatherStation);
-		} else if (weatherStation.getParserClass().toString().equals(HolfuyDataParser.class.toString())) {
+//		weatherStation.getParserClass().toString().equals(DavisWeatherLinkDataParser.class.toString())
+		if (weatherStation.getClass().equals(DavisWeatherLinkWeatherStation.class)) {
+				parser = new DavisWeatherLinkDataParser(weatherStation);				
+		}  else if (weatherStation.getClass().equals(DavisWeatherStation.class)) {
+			parser = new DavisDataParser(weatherStation);
+		} else if (weatherStation.getClass().equals(WeatherDisplayWeatherStation.class)) {
+			parser = new WeatherDisplayDataParser(weatherStation);
+		} else if (weatherStation.getClass().equals(NortekWeatherStation.class)) {
+			parser = new NortekDataParser(weatherStation);
+		} else if (weatherStation.getClass().equals(HolfuyWeatherStation.class)) {
 			parser = new HolfuyDataParser(weatherStation);
 		}
 		

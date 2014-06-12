@@ -10,7 +10,6 @@ import no.vindsiden.parser.impl.support.holfuy.HolfuyMeasurementTransformer;
 import no.vindsiden.parser.impl.support.holfuy.HolfuyWeatherXML;
 import no.vindsiden.vindsiden.Measurement;
 import no.vindsiden.weatherstation.WeatherStation;
-import no.vindsiden.weatherstation.impl.HolfuyWeatherStation;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -25,9 +24,8 @@ public class HolfuyDataParser extends WeatherDataParser {
 	private URL url;
 	private HolfuyWeatherXML holfuyData;
 
-	@SuppressWarnings("rawtypes")
-	public HolfuyDataParser(WeatherStation ws) {
-		setWeatherStation(ws);
+	public HolfuyDataParser(WeatherStation weatherStation) {
+		super(weatherStation);
 	}
 
 	@Override
@@ -48,12 +46,11 @@ public class HolfuyDataParser extends WeatherDataParser {
 	}
 
 	private void initializeURLLocation() throws MalformedURLException {
-		url = new URL(((HolfuyWeatherStation) getWeatherStation()).getUrl());
+		url = new URL(getWeatherStation().getUrl());
 	}
 
 	private void fetchDocument() throws IOException {
-		document = Jsoup.parse(url.openStream(), "UTF-8",
-				((HolfuyWeatherStation) getWeatherStation()).getUrl());
+		document = Jsoup.parse(url.openStream(), "UTF-8",getWeatherStation().getUrl());
 	}
 
 }

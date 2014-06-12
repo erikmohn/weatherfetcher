@@ -20,8 +20,8 @@ import com.google.common.collect.Lists;
 
 public class NortekDataParser extends WeatherDataParser {
 	
-	public NortekDataParser(WeatherStation<NortekDataParser> weatherStation) {
-		setWeatherStation(weatherStation);
+	public NortekDataParser(WeatherStation weatherStation) {
+		super(weatherStation);
 	}
 	
 	@Override

@@ -12,7 +12,6 @@ import java.util.TimeZone;
 import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.vindsiden.Measurement;
 import no.vindsiden.weatherstation.WeatherStation;
-import no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation;
 
 import org.apache.commons.lang.math.NumberUtils;
 import org.joda.time.DateTime;
@@ -35,9 +34,9 @@ public class DavisWeatherLinkDataParser extends WeatherDataParser {
 	private URL url;
 	private Measurement measurement;
 	
-	public DavisWeatherLinkDataParser(WeatherStation<DavisWeatherLinkDataParser> weatherStation)  {
+	public DavisWeatherLinkDataParser(WeatherStation weatherStation)  {
+		super(weatherStation);
 		data = new HashMap<String, List<String>>();
-		setWeatherStation(weatherStation);
 	}
 
 	@Override
@@ -50,7 +49,7 @@ public class DavisWeatherLinkDataParser extends WeatherDataParser {
 	}
 	
 	private void initializeURLLocation() throws MalformedURLException {
-		url = new URL(((DavisWeatherLinkWeatherStation) getWeatherStation()).getUrl());
+		url = new URL(getWeatherStation().getUrl());
 	}
 	
 	private void fetchDocument() throws IOException {

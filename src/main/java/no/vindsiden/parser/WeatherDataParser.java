@@ -13,15 +13,20 @@ import no.vindsiden.weatherstation.WeatherStation;
  */
 public abstract class WeatherDataParser {
 
-	private WeatherStation<?> weatherStation;
+	private WeatherStation weatherStation;
 	
 	public abstract List<Measurement> fetchMeasurement() throws IOException;
 
-	public void setWeatherStation(WeatherStation<?> weatherStation) {
-		this.weatherStation =  weatherStation;
+	@SuppressWarnings("unused")
+	private WeatherDataParser() {
+		
+	}
+	
+	public WeatherDataParser(WeatherStation weatherStation) {
+		this.weatherStation = weatherStation;
 	}
 
-	public WeatherStation<?> getWeatherStation() {
+	public WeatherStation getWeatherStation() {
 		return weatherStation;
 	}
 	

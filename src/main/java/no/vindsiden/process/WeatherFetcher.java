@@ -24,15 +24,15 @@ public class WeatherFetcher {
 
 	private Configuration configuration;
 	private VindsidenHttpClient httpClient;
-	private List<WeatherStation<?>> weatherStations;
-	private List<WeatherStation<?>> failedWeatherStations;
+	private List<WeatherStation> weatherStations;
+	private List<WeatherStation> failedWeatherStations;
 	private boolean inErrorHandling = false; 
 	
 	public WeatherFetcher(Configuration config) {
 		this.configuration = config;
 		this.httpClient = new VindsidenHttpClient();
 		this.weatherStations = config.getWeatherStationList();
-		this.failedWeatherStations = new ArrayList<WeatherStation<?>>();
+		this.failedWeatherStations = new ArrayList<WeatherStation>();
 	}
 
 	public void execute() {
@@ -43,9 +43,9 @@ public class WeatherFetcher {
 		}	
 	}
 
-	private void processWeatherStations(List<WeatherStation<?>> weatherStations) {
+	private void processWeatherStations(List<WeatherStation> weatherStations) {
 		Collections.sort(weatherStations, new WeatherStationComparator());
-		for (WeatherStation<?> weatherStation : weatherStations) {
+		for (WeatherStation weatherStation : weatherStations) {
 			try {
 				if(weatherStation.isEnabled()) {
 					processWeatherStation(weatherStation);					
@@ -60,7 +60,7 @@ public class WeatherFetcher {
 		}
 	}
 
-	private void processWeatherStation(WeatherStation<?> weatherStation) throws IOException, HttpException {		
+	private void processWeatherStation(WeatherStation weatherStation) throws IOException, HttpException {		
 		for (Measurement measurement : weatherStation.fetchMeasurement()) {
 			httpClient.sendHttpRequest(measurement);
 			

@@ -17,17 +17,17 @@ public class Configuration {
 
 	private static Configuration configurationCache;
 	private String vindSidenUrl;
-	private List<WeatherStation<?>> weatherStationList;
+	private List<WeatherStation> weatherStationList;
 	private long timeToSleepBeforeErrorHandling;
 
-	public void addWeatherStation(WeatherStation<?> weatherStation) {
+	public void addWeatherStation(WeatherStation weatherStation) {
 		if (weatherStationList == null) {
-			this.weatherStationList = new ArrayList<WeatherStation<?>>();
+			this.weatherStationList = new ArrayList<WeatherStation>();
 		}
 		weatherStationList.add(weatherStation);
 	}
 
-	public List<WeatherStation<?>> getWeatherStationList() {
+	public List<WeatherStation> getWeatherStationList() {
 		return weatherStationList;
 	}
 

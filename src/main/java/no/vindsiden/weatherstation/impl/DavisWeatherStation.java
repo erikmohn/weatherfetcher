@@ -1,22 +1,13 @@
 package no.vindsiden.weatherstation.impl;
 
-import no.vindsiden.parser.impl.DavisDataParser;
-import no.vindsiden.parser.impl.support.WindUnitType;
 import no.vindsiden.weatherstation.WeatherStation;
 
-public class DavisWeatherStation extends WeatherStation<DavisDataParser> {
+public class DavisWeatherStation extends WeatherStation {
 
-	private WindUnitType windUnitType;
 	
-	public DavisWeatherStation(int id, Class<DavisDataParser> clazz, String name) {
-		super(id, clazz, name);
+	
+	public DavisWeatherStation(int id, String name) {
+		super(id,name);
 	}
 
-	public void setWindUnitType(WindUnitType windUnitType) {
-		this.windUnitType = windUnitType;
-	}
-
-	public WindUnitType getWindUnitType() {
-		return windUnitType;
-	}
 }

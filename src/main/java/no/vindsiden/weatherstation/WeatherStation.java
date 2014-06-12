@@ -3,41 +3,33 @@ package no.vindsiden.weatherstation;
 import java.io.IOException;
 import java.util.List;
 
-import com.google.common.collect.Lists;
-
-import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.parser.WeatherDataParserFactory;
+import no.vindsiden.parser.impl.support.WindUnitType;
 import no.vindsiden.vindsiden.Measurement;
+
+import com.google.common.collect.Lists;
 
 
 
 /**
  * @author Erik Mohn - mohn.erik@gmail.com
  */
-public abstract class WeatherStation<PARSER extends WeatherDataParser> {
+public abstract class WeatherStation {
 	
-	private Class<PARSER> parserClass;
-	private PARSER dataParser;
 	private int weatherStationId;
 	private String name;
 	private boolean enabled;
 	private String url;
+	private WindUnitType windUnitType;
 	
 	
-	public Class<PARSER> getParserClass() {
-		return parserClass;
-	}
-	
-	public WeatherStation(int id, Class<PARSER> clazz, String name) {
-		this.parserClass = clazz;
+	public WeatherStation(int id, String name) {
 		this.weatherStationId = id;
 		this.name = name;
 	}
 	
-	@SuppressWarnings("unchecked")
 	public List<Measurement> fetchMeasurement() throws IOException {
-		dataParser = (PARSER) WeatherDataParserFactory.getInstance(this);
-		return Lists.newArrayList(dataParser.fetchMeasurement());
+		return Lists.newArrayList(WeatherDataParserFactory.getInstance(this).fetchMeasurement());
 	}
 	
 	public void setWeatherStationId(int weatherStationId) {
@@ -46,14 +38,6 @@ public abstract class WeatherStation<PARSER extends WeatherDataParser> {
 
 	public int getWeatherStationId() {
 		return weatherStationId;
-	}
-
-	public void setDataParser(PARSER dataParser) {
-		this.dataParser = dataParser;
-	}
-
-	public PARSER getDataParser() {
-		return dataParser;
 	}
 
 	public void setName(String name) {
@@ -83,5 +67,13 @@ public abstract class WeatherStation<PARSER extends WeatherDataParser> {
 
 	public String getUrl() {
 		return url;
+	}
+
+	public WindUnitType getWindUnitType() {
+		return windUnitType;
+	}
+
+	public void setWindUnitType(WindUnitType windUnitType) {
+		this.windUnitType = windUnitType;
 	}
 }

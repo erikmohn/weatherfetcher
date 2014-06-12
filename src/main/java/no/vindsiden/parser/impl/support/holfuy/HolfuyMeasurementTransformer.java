@@ -21,7 +21,7 @@ public class HolfuyMeasurementTransformer {
 						measurement.setDirectionAvg(weatherMeasurement.getWind().getDir());
 						measurement.setTemperature1(weatherMeasurement.getTemp().getTemp());
 						measurement.setWindAvg(weatherMeasurement.getWind().getSpeed());
-						measurement.setWindMin(weatherMeasurement.getWind().getSpeed());
+						measurement.setWindMin((weatherMeasurement.getWind().getSpeed() * 2) - weatherMeasurement.getWind().getGust() );
 						measurement.setWindMax(weatherMeasurement.getWind().getGust());
 						measurement.setStationID(HolfuyStationId.valueOf(weatherMeasurement.getStation().getId()).getVindsidenId());
 						return measurement;

@@ -11,7 +11,6 @@ import no.vindsiden.parser.impl.support.WeatherDataUnavailableException;
 import no.vindsiden.parser.impl.support.WindUnitType;
 import no.vindsiden.vindsiden.Measurement;
 import no.vindsiden.weatherstation.WeatherStation;
-import no.vindsiden.weatherstation.impl.DavisWeatherStation;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
@@ -27,14 +26,13 @@ public class DavisDataParser extends WeatherDataParser {
 	private String[] data;
 	private Measurement measurement;
 
-	public DavisDataParser(WeatherStation<DavisDataParser> weatherStation) {
-		setWeatherStation(weatherStation);
+	public DavisDataParser(WeatherStation weatherStation) {
+		super(weatherStation);
 	}
 
 	@Override
 	public List<Measurement> fetchMeasurement() throws IOException {
 		fetchDataFromWeatherStation();
-
 		parseWeatherData();
 		
 		return Lists.newArrayList(measurement);
@@ -72,7 +70,7 @@ public class DavisDataParser extends WeatherDataParser {
 
 	private Double getWindSpeed(double windSpeed) {
 		double ws = windSpeed;
-		if (WindUnitType.KNOTS.equals(((DavisWeatherStation)getWeatherStation()).getWindUnitType())) {
+		if (WindUnitType.KNOTS.equals(getWeatherStation().getWindUnitType())) {
 			ws = windSpeed * 0.5144;
 		}
 		BigDecimal wsBigDecimal = new BigDecimal(ws).setScale(1, BigDecimal.ROUND_UP);
@@ -80,7 +78,7 @@ public class DavisDataParser extends WeatherDataParser {
 	}
 
 	private void fetchDataFromWeatherStation() throws IOException, HttpException {
-		String url = ((DavisWeatherStation) getWeatherStation()).getUrl();
+		String url = getWeatherStation().getUrl();
 		HttpClient httpClient = new HttpClient();
 		GetMethod method = new GetMethod(url + "/clientraw.txt");
 
