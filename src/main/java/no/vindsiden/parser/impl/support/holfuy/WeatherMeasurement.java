@@ -1,5 +1,8 @@
 package no.vindsiden.parser.impl.support.holfuy;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("weathermeasurement")
 public class WeatherMeasurement {
 	private Station station;
 	private Temp temp;

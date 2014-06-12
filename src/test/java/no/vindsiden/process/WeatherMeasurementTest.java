@@ -2,9 +2,9 @@ package no.vindsiden.process;
 
 import java.io.File;
 
-import no.vindsiden.parser.impl.support.HolfuyWeatherXML;
 import no.vindsiden.parser.impl.support.JodaTimeConverter;
 import no.vindsiden.parser.impl.support.WeatherReport;
+import no.vindsiden.parser.impl.support.holfuy.HolfuyWeatherXML;
 import no.vindsiden.parser.impl.support.holfuy.Station;
 import no.vindsiden.parser.impl.support.holfuy.Temp;
 import no.vindsiden.parser.impl.support.holfuy.Timestamp;

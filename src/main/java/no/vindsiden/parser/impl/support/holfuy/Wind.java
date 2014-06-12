@@ -1,12 +1,23 @@
 package no.vindsiden.parser.impl.support.holfuy;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+
+@XStreamAlias("wind")
 public class Wind {
 
 	private static final Double KMH_TO_KNOTS_CONSTANT = 0.539956803;
 	
+	@XStreamAsAttribute
 	private Double speed;
+	
+	@XStreamAsAttribute
 	private Double gust;
+	
+	@XStreamAsAttribute
 	private Integer dir;
+	
+	@XStreamAsAttribute
 	private String unit;
 	
 	public double getSpeed() {
