@@ -61,7 +61,7 @@
 					<assembleDirectory>target</assembleDirectory>
 					<programs>
 						<program>
-							<mainClass>no.vindsiden.process.WeatherFetcherProcess</mainClass>
+							<mainClass>no.vindsiden.vindsiden.WeatherFetcherProcess</mainClass>
 							<name>fetchWeather</name>
 						</program>
 					</programs>

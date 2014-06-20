@@ -11,7 +11,7 @@ import java.util.TimeZone;
 
 import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.vindsiden.Measurement;
-import no.vindsiden.weatherstation.WeatherStation;
+import no.vindsiden.vindsiden.WeatherStation;
 
 import org.apache.commons.lang.math.NumberUtils;
 import org.joda.time.DateTime;

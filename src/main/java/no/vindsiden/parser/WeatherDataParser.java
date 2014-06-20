@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import no.vindsiden.vindsiden.Measurement;
-import no.vindsiden.weatherstation.WeatherStation;
+import no.vindsiden.vindsiden.WeatherStation;
 
 
 

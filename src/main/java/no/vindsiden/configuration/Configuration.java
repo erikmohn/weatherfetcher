@@ -4,19 +4,26 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import no.vindsiden.weatherstation.WeatherStation;
+import no.vindsiden.vindsiden.WeatherStation;
+
+
+
 
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 
 /**
  * @author Erik Mohn - mohn.erik@gmail.com
  */
+@XStreamAlias("configuration")
 public class Configuration {
 
 	private static Configuration configurationCache;
 	private String vindSidenUrl;
+	@XStreamImplicit
 	private List<WeatherStation> weatherStationList;
 	private long timeToSleepBeforeErrorHandling;
 
@@ -42,7 +49,9 @@ public class Configuration {
 	public static Configuration getConfiguration() {
 		if (configurationCache == null) {
 			InputStream is = ClassLoader.getSystemResourceAsStream("configuration.xml");
-			configurationCache = (Configuration) new XStream().fromXML(is);
+			XStream xStream = new XStream();
+			xStream.processAnnotations(Configuration.class);
+			configurationCache = (Configuration) xStream.fromXML(is);
 		}
 		return configurationCache;
 	}
@@ -53,6 +62,10 @@ public class Configuration {
 
 	public long getTimeToSleepBeforeErrorHandling() {
 		return timeToSleepBeforeErrorHandling;
+	}
+	
+	public void clearWeatherStations() {
+		weatherStationList.clear();
 	}
 	
 }

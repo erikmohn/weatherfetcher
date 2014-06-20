@@ -11,7 +11,7 @@ import java.util.List;
 
 import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.vindsiden.Measurement;
-import no.vindsiden.weatherstation.WeatherStation;
+import no.vindsiden.vindsiden.WeatherStation;
 
 import org.json.JSONException;
 import org.json.JSONObject;

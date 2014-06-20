@@ -1,8 +1,6 @@
-package no.vindsiden.process.support;
+package no.vindsiden.vindsiden;
 
 import java.util.Comparator;
-
-import no.vindsiden.weatherstation.WeatherStation;
 
 public class WeatherStationComparator implements Comparator<WeatherStation> {
 

@@ -1,37 +1,32 @@
-package no.vindsiden.weatherstation;
+package no.vindsiden.vindsiden;
 
 import java.io.IOException;
 import java.util.List;
 
 import no.vindsiden.parser.WeatherDataParserFactory;
 import no.vindsiden.parser.impl.support.WindUnitType;
-import no.vindsiden.vindsiden.Measurement;
 
 import com.google.common.collect.Lists;
-
-
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * @author Erik Mohn - mohn.erik@gmail.com
  */
-public abstract class WeatherStation {
-	
+@XStreamAlias("weatherstation")
+public class WeatherStation {
+
 	private int weatherStationId;
 	private String name;
 	private boolean enabled;
 	private String url;
 	private WindUnitType windUnitType;
-	
-	
-	public WeatherStation(int id, String name) {
-		this.weatherStationId = id;
-		this.name = name;
-	}
-	
+	private WeatherStationType type;
+
 	public List<Measurement> fetchMeasurement() throws IOException {
-		return Lists.newArrayList(WeatherDataParserFactory.getInstance(this).fetchMeasurement());
+		return Lists.newArrayList(WeatherDataParserFactory.getInstance(this)
+				.fetchMeasurement());
 	}
-	
+
 	public void setWeatherStationId(int weatherStationId) {
 		this.weatherStationId = weatherStationId;
 	}
@@ -55,7 +50,7 @@ public abstract class WeatherStation {
 	public boolean isEnabled() {
 		return enabled;
 	}
-	
+
 	@Override
 	public String toString() {
 		return getName();
@@ -75,5 +70,13 @@ public abstract class WeatherStation {
 
 	public void setWindUnitType(WindUnitType windUnitType) {
 		this.windUnitType = windUnitType;
+	}
+
+	public WeatherStationType getType() {
+		return type;
+	}
+
+	public void setStationType(WeatherStationType stationType) {
+		this.type = stationType;
 	}
 }

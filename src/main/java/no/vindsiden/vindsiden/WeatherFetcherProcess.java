@@ -1,4 +1,4 @@
-package no.vindsiden.process;
+package no.vindsiden.vindsiden;
 
 import no.vindsiden.configuration.Configuration;
 

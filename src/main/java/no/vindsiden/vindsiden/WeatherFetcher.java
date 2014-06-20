@@ -1,4 +1,4 @@
-package no.vindsiden.process;
+package no.vindsiden.vindsiden;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,10 +6,6 @@ import java.util.Collections;
 import java.util.List;
 
 import no.vindsiden.configuration.Configuration;
-import no.vindsiden.process.support.WeatherStationComparator;
-import no.vindsiden.vindsiden.Measurement;
-import no.vindsiden.vindsiden.VindsidenHttpClient;
-import no.vindsiden.weatherstation.WeatherStation;
 
 import org.apache.commons.httpclient.HttpException;
 import org.joda.time.DateTime;
@@ -36,14 +32,23 @@ public class WeatherFetcher {
 	}
 
 	public void execute() {
-		processWeatherStations(weatherStations);
+		validate();
+		processWeatherStations();
 		if (failedWeatherStationsExists()) {
 			log("Will do error handling of: " + failedWeatherStations);
 			executeErrorHandling();			
 		}	
 	}
 
-	private void processWeatherStations(List<WeatherStation> weatherStations) {
+	private void validate() {
+		if ( weatherStations == null || weatherStations.size() == 0) {
+			throw new RuntimeException("No weatherStations configured!");
+		}
+	}
+
+	private void processWeatherStations() {
+		List<WeatherStation> weatherStations = (inErrorHandling) ? failedWeatherStations : this.weatherStations; 
+		
 		Collections.sort(weatherStations, new WeatherStationComparator());
 		for (WeatherStation weatherStation : weatherStations) {
 			try {
@@ -80,7 +85,7 @@ public class WeatherFetcher {
 		inErrorHandling = true;
 		try {
 			Thread.sleep(configuration.getTimeToSleepBeforeErrorHandling());	
-			processWeatherStations(failedWeatherStations);
+			processWeatherStations();
 		} catch (InterruptedException e) {
 			log("Thread.sleep Interrupted");
 			e.printStackTrace();

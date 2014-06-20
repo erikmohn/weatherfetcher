@@ -9,7 +9,7 @@ import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.parser.impl.support.holfuy.HolfuyMeasurementTransformer;
 import no.vindsiden.parser.impl.support.holfuy.HolfuyWeatherXML;
 import no.vindsiden.vindsiden.Measurement;
-import no.vindsiden.weatherstation.WeatherStation;
+import no.vindsiden.vindsiden.WeatherStation;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

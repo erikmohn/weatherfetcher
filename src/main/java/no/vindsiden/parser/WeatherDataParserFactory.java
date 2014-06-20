@@ -5,33 +5,36 @@ import no.vindsiden.parser.impl.DavisWeatherLinkDataParser;
 import no.vindsiden.parser.impl.HolfuyDataParser;
 import no.vindsiden.parser.impl.NortekDataParser;
 import no.vindsiden.parser.impl.WeatherDisplayDataParser;
-import no.vindsiden.weatherstation.WeatherStation;
-import no.vindsiden.weatherstation.impl.DavisWeatherLinkWeatherStation;
-import no.vindsiden.weatherstation.impl.DavisWeatherStation;
-import no.vindsiden.weatherstation.impl.HolfuyWeatherStation;
-import no.vindsiden.weatherstation.impl.NortekWeatherStation;
-import no.vindsiden.weatherstation.impl.WeatherDisplayWeatherStation;
-
+import no.vindsiden.vindsiden.WeatherStation;
 
 public class WeatherDataParserFactory {
 
-
 	public static WeatherDataParser getInstance(WeatherStation weatherStation) {
+
 		WeatherDataParser parser = null;
-//		weatherStation.getParserClass().toString().equals(DavisWeatherLinkDataParser.class.toString())
-		if (weatherStation.getClass().equals(DavisWeatherLinkWeatherStation.class)) {
-				parser = new DavisWeatherLinkDataParser(weatherStation);				
-		}  else if (weatherStation.getClass().equals(DavisWeatherStation.class)) {
+
+		switch (weatherStation.getType()) {
+		case DAVIS_WEATHER_LINK:
+			parser = new DavisWeatherLinkDataParser(weatherStation);
+			break;
+		case DAVIS:
 			parser = new DavisDataParser(weatherStation);
-		} else if (weatherStation.getClass().equals(WeatherDisplayWeatherStation.class)) {
+			break;
+		case WEATHERDISPLAY:
 			parser = new WeatherDisplayDataParser(weatherStation);
-		} else if (weatherStation.getClass().equals(NortekWeatherStation.class)) {
+			break;
+		case NORTEK:
 			parser = new NortekDataParser(weatherStation);
-		} else if (weatherStation.getClass().equals(HolfuyWeatherStation.class)) {
+			break;
+		case HOLFUY:
 			parser = new HolfuyDataParser(weatherStation);
+			break;
+		default:
+			throw new RuntimeException(
+					"No matching parser for weatherstation type!");
 		}
-		
+
 		return parser;
 	}
-	
+
 }
