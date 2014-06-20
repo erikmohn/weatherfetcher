@@ -60,13 +60,19 @@ public class WeatherFetcher {
 		}
 	}
 
-	private void processWeatherStation(WeatherStation weatherStation) throws IOException, HttpException {		
-		for (Measurement measurement : weatherStation.fetchMeasurement()) {
+	private void processWeatherStation(WeatherStation weatherStation) throws IOException, HttpException {
+		
+		List<Measurement> measurements =  weatherStation.fetchMeasurement();
+		
+		for (Measurement measurement : measurements) {
 			httpClient.sendHttpRequest(measurement);
 			
 			DateTime now = new DateTime();
 			DateTimeFormatter fmt = DateTimeFormat.mediumDateTime();
-			log( fmt.print(now) + " Executed HTTP request, for " + weatherStation.getName() + " : " + measurement.toVindSidenUrl());			
+			
+			String name = (measurements.size() == 1 ) ? weatherStation.getName() : measurement.getStationName();
+			
+			log( fmt.print(now) + " Executed HTTP request, for " + name + " : " + measurement.toVindSidenUrl());			
 		}
 	}
 

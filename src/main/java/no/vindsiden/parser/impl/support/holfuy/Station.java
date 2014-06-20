@@ -7,9 +7,9 @@ import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 public class Station {
 
 	@XStreamAsAttribute
-	private String id = "foo";
+	private String id;
 	@XStreamAsAttribute
-	private String location = "foo";
+	private String location;
 
 	public String getId() {
 		return id;

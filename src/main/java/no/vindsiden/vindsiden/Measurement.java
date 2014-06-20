@@ -28,6 +28,7 @@ public class Measurement {
 	private Double Temperature2;
 	private int Light;
 	private Double Battery;
+	private String stationName;
 
 	public int getDataID() {
 		return DataID;
@@ -156,21 +157,24 @@ public class Measurement {
 		return xs.toXML(this);
 
 	}
-	
+
 	public String toVindSidenUrl() {
-		
+
 		DecimalFormat df = new DecimalFormat("#.#");
-		
-		return "http://www.vindsiden.no/wrm.aspx"
-				+ "?v=0"
-				+ "&CC=314"
-				+ "&Id=" + getStationID()
-				+ "&Wind=" + df.format(getWindAvg())  
-				+ "&WindMin=" + df.format(getWindMin())
-				+ "&WindMax=" + df.format(getWindMax())
-				+ "&Dir=" + getDirectionAvg()
+
+		return "http://www.vindsiden.no/wrm.aspx" + "?v=0" + "&CC=314" + "&Id="
+				+ getStationID() + "&Wind=" + df.format(getWindAvg())
+				+ "&WindMin=" + df.format(getWindMin()) + "&WindMax="
+				+ df.format(getWindMax()) + "&Dir=" + getDirectionAvg()
 				+ "&Temp1=" + getTemperature1();
 	}
 
+	public String getStationName() {
+		return stationName;
+	}
+
+	public void setStationName(String stationName) {
+		this.stationName = stationName;
+	}
 
 }

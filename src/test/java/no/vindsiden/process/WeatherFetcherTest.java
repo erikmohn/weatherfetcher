@@ -60,11 +60,11 @@ public class WeatherFetcherTest {
 //		config.addWeatherStation(ws);
 //		config.addWeatherStation(ws2);
 //		config.addWeatherStation(ws3);
-		config.addWeatherStation(ws4);
+//		config.addWeatherStation(ws4);
 		
-		HolfuyWeatherStation h = new HolfuyWeatherStation(123, "http://holfuy.hu/en/takeit/vindsiden.php", "Foo");
+		HolfuyWeatherStation h = new HolfuyWeatherStation(123, "http://holfuy.hu/en/takeit/vindsiden.php", null);
 		h.setEnabled(true);
-//		config.addWeatherStation(h);
+		config.addWeatherStation(h);
 		
 		//System.out.println(new XStream().toXML(config));
 		

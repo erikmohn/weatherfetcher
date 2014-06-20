@@ -33,16 +33,24 @@ public class HolfuyDataParser extends WeatherDataParser {
 		initializeURLLocation();
 		fetchDocument();
 		parseXml();
-		return Lists.newArrayList(HolfuyMeasurementTransformer.transform(holfuyData));
+		
+		return Lists.newArrayList(HolfuyMeasurementTransformer.transform(holfuyData.getMeasurements()));
 	}
+
+
 
 	private void parseXml() {
 		XStream xStream = new XStream();
 		xStream.processAnnotations(HolfuyWeatherXML.class);
-		Element d = document.select("body").first();
-		d.select("script").first().remove();
+		Element xml = getXml();
 
-		holfuyData = (HolfuyWeatherXML) xStream.fromXML(d.html());
+		
+		
+		holfuyData = (HolfuyWeatherXML) xStream.fromXML(xml.html());
+	}
+
+	private Element getXml() {
+		return  document.select("body").first();
 	}
 
 	private void initializeURLLocation() throws MalformedURLException {
