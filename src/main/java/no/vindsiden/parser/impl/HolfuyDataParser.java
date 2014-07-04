@@ -5,11 +5,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
+import no.vindsiden.domain.Measurement;
+import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.parser.impl.support.holfuy.HolfuyMeasurementTransformer;
 import no.vindsiden.parser.impl.support.holfuy.HolfuyWeatherXML;
-import no.vindsiden.vindsiden.Measurement;
-import no.vindsiden.vindsiden.WeatherStation;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -33,24 +33,21 @@ public class HolfuyDataParser extends WeatherDataParser {
 		initializeURLLocation();
 		fetchDocument();
 		parseXml();
-		
-		return Lists.newArrayList(HolfuyMeasurementTransformer.transform(holfuyData.getMeasurements()));
+
+		return Lists.newArrayList(HolfuyMeasurementTransformer
+				.transform(holfuyData.getMeasurements()));
 	}
-
-
 
 	private void parseXml() {
 		XStream xStream = new XStream();
 		xStream.processAnnotations(HolfuyWeatherXML.class);
 		Element xml = getXml();
 
-		
-		
 		holfuyData = (HolfuyWeatherXML) xStream.fromXML(xml.html());
 	}
 
 	private Element getXml() {
-		return  document.select("body").first();
+		return document.select("body").first();
 	}
 
 	private void initializeURLLocation() throws MalformedURLException {
@@ -58,7 +55,8 @@ public class HolfuyDataParser extends WeatherDataParser {
 	}
 
 	private void fetchDocument() throws IOException {
-		document = Jsoup.parse(url.openStream(), "UTF-8",getWeatherStation().getUrl());
+		document = Jsoup.parse(url.openStream(), "UTF-8", getWeatherStation()
+				.getUrl());
 	}
 
 }

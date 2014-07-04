@@ -1,6 +1,8 @@
-package no.vindsiden.vindsiden;
+package no.vindsiden;
 
 import java.io.IOException;
+
+import no.vindsiden.domain.Measurement;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;

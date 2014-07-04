@@ -3,8 +3,8 @@ package no.vindsiden.parser;
 import java.io.IOException;
 import java.util.List;
 
-import no.vindsiden.vindsiden.Measurement;
-import no.vindsiden.vindsiden.WeatherStation;
+import no.vindsiden.domain.Measurement;
+import no.vindsiden.domain.WeatherStation;
 
 
 

@@ -4,11 +4,13 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import no.vindsiden.vindsiden.WeatherStation;
 
 
 
 
+
+
+import no.vindsiden.domain.WeatherStation;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.XStreamAlias;

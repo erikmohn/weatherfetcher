@@ -1,4 +1,4 @@
-package no.vindsiden.vindsiden;
+package no.vindsiden.domain;
 
 import java.io.IOException;
 import java.util.List;

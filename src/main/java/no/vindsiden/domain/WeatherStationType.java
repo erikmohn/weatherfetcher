@@ -1,4 +1,4 @@
-package no.vindsiden.vindsiden;
+package no.vindsiden.domain;
 
 public enum WeatherStationType {
 	

@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
+import no.vindsiden.domain.Measurement;
+import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.parser.impl.support.WindDirection;
-import no.vindsiden.vindsiden.Measurement;
-import no.vindsiden.vindsiden.WeatherStation;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

@@ -7,12 +7,12 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.TimeZone;
 
+import no.vindsiden.domain.Measurement;
+import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.parser.impl.support.DavisDescription;
 import no.vindsiden.parser.impl.support.WeatherDataUnavailableException;
 import no.vindsiden.parser.impl.support.WindUnitType;
-import no.vindsiden.vindsiden.Measurement;
-import no.vindsiden.vindsiden.WeatherStation;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;

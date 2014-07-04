@@ -3,7 +3,7 @@ package no.vindsiden.parser.impl.support.holfuy;
 import java.util.Collection;
 import java.util.List;
 
-import no.vindsiden.vindsiden.Measurement;
+import no.vindsiden.domain.Measurement;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
@@ -21,7 +21,7 @@ public class HolfuyMeasurementTransformer {
 						boolean configuredStation = true; 
 						try {
 							HolfuyStationId.valueOf(weatherMeasurement.getStation().getId());
-						} catch (Exception e) {
+						} catch (IllegalArgumentException e) {
 							configuredStation = false;
 							System.out.println("Weatherstation: " + weatherMeasurement.getStation().getId() + " not configured!");
 						}
@@ -38,9 +38,9 @@ public class HolfuyMeasurementTransformer {
 						Measurement measurement = new Measurement();
 						measurement.setDirectionAvg(weatherMeasurement.getWind().getDir());
 						measurement.setTemperature1(weatherMeasurement.getTemp().getTemp());
-						measurement.setWindAvg(weatherMeasurement.getWind().getSpeed());
-						measurement.setWindMin((weatherMeasurement.getWind().getSpeed() * 2) - weatherMeasurement.getWind().getGust() );
-						measurement.setWindMax(weatherMeasurement.getWind().getGust());
+						measurement.setWindAvg(weatherMeasurement.getWind().getSpeed() * 0.5144);
+						measurement.setWindMin(((weatherMeasurement.getWind().getSpeed() * 2) - weatherMeasurement.getWind().getGust()) * 0.5144 );
+						measurement.setWindMax(weatherMeasurement.getWind().getGust() * 0.5144);
 						measurement.setStationID(HolfuyStationId.valueOf(weatherMeasurement.getStation().getId()).getVindsidenId());
 						measurement.setStationName(weatherMeasurement.getStation().getLocation());
 						return measurement;

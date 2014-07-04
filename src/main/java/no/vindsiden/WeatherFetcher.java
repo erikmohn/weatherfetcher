@@ -1,4 +1,4 @@
-package no.vindsiden.vindsiden;
+package no.vindsiden;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,11 +6,16 @@ import java.util.Collections;
 import java.util.List;
 
 import no.vindsiden.configuration.Configuration;
+import no.vindsiden.domain.Measurement;
+import no.vindsiden.domain.WeatherStation;
+import no.vindsiden.domain.WeatherStationComparator;
 
 import org.apache.commons.httpclient.HttpException;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+
+import com.google.common.collect.Collections2;
 
 
 /**
@@ -48,7 +53,7 @@ public class WeatherFetcher {
 
 	private void processWeatherStations() {
 		List<WeatherStation> weatherStations = (inErrorHandling) ? failedWeatherStations : this.weatherStations; 
-		
+
 		Collections.sort(weatherStations, new WeatherStationComparator());
 		for (WeatherStation weatherStation : weatherStations) {
 			try {
