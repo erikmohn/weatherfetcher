@@ -6,6 +6,7 @@ public enum WeatherStationType {
 	DAVIS,
 	HOLFUY,
 	NORTEK,
-	WEATHERDISPLAY
+	WEATHERDISPLAY,
+	NLSK
 	
 }

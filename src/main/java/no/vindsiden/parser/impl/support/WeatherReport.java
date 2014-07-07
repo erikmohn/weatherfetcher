@@ -3,24 +3,24 @@ package no.vindsiden.parser.impl.support;
 import java.util.ArrayList;
 import java.util.List;
 
-import no.vindsiden.parser.impl.support.holfuy.WeatherMeasurement;
+import no.vindsiden.parser.impl.support.holfuy.HolfuyWeatherMeasurement;
 
 public class WeatherReport {
 
-	private List<WeatherMeasurement> measurements;
+	private List<HolfuyWeatherMeasurement> measurements;
 
-	public void addWeatherMeasurement(WeatherMeasurement measurement) {
+	public void addWeatherMeasurement(HolfuyWeatherMeasurement measurement) {
 		if (measurements == null) {
-			measurements = new ArrayList<WeatherMeasurement>();
+			measurements = new ArrayList<HolfuyWeatherMeasurement>();
 		}
 		measurements.add(measurement);
 	}
 	
-	public List<WeatherMeasurement> getMeasurements() {
+	public List<HolfuyWeatherMeasurement> getMeasurements() {
 		return measurements;
 	}
 
-	public void setMeasurements(List<WeatherMeasurement> measurements) {
+	public void setMeasurements(List<HolfuyWeatherMeasurement> measurements) {
 		this.measurements = measurements;
 	}
 	

@@ -4,6 +4,7 @@ import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.parser.impl.DavisDataParser;
 import no.vindsiden.parser.impl.DavisWeatherLinkDataParser;
 import no.vindsiden.parser.impl.HolfuyDataParser;
+import no.vindsiden.parser.impl.NLSKDataParser;
 import no.vindsiden.parser.impl.NortekDataParser;
 import no.vindsiden.parser.impl.WeatherDisplayDataParser;
 
@@ -28,6 +29,9 @@ public class WeatherDataParserFactory {
 			break;
 		case HOLFUY:
 			parser = new HolfuyDataParser(weatherStation);
+			break;
+		case NLSK:
+			parser = new NLSKDataParser(weatherStation);
 			break;
 		default:
 			throw new RuntimeException(

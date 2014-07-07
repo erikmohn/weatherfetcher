@@ -15,8 +15,6 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-import com.google.common.collect.Collections2;
-
 
 /**
  * @author Erik Mohn - mohn.erik@gmail.com

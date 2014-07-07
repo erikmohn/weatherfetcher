@@ -107,4 +107,12 @@
 		<url>http://holfuy.hu/en/takeit/vindsiden.php</url>
 	</weatherstation>
 
+	<weatherstation>
+		<weatherStationId>-1</weatherStationId>
+		<name>NLSK</name>
+		<type>NLSK</type>
+		<enabled>true</enabled>
+		<url>http://nlsk.no-ip.org/v%C3%A6rdata.xml</url>
+	</weatherstation>
+
 </configuration>

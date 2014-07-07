@@ -11,13 +11,13 @@ import com.google.common.collect.FluentIterable;
 
 public class HolfuyMeasurementTransformer {
 
-	public static Collection<Measurement>  transform(List<WeatherMeasurement> measurements) {
+	public static Collection<Measurement>  transform(List<HolfuyWeatherMeasurement> measurements) {
 		return FluentIterable
 			.from(measurements)
-			.filter(new Predicate<WeatherMeasurement>() {
+			.filter(new Predicate<HolfuyWeatherMeasurement>() {
 
 					@Override
-					public boolean apply(WeatherMeasurement weatherMeasurement) {
+					public boolean apply(HolfuyWeatherMeasurement weatherMeasurement) {
 						boolean configuredStation = true; 
 						try {
 							HolfuyStationId.valueOf(weatherMeasurement.getStation().getId());
@@ -30,11 +30,11 @@ public class HolfuyMeasurementTransformer {
 					}
 				})
 			.transform(
-				new Function<WeatherMeasurement, Measurement>() {
+				new Function<HolfuyWeatherMeasurement, Measurement>() {
 
 					@Override
 					public Measurement apply(
-							WeatherMeasurement weatherMeasurement) {
+							HolfuyWeatherMeasurement weatherMeasurement) {
 						Measurement measurement = new Measurement();
 						measurement.setDirectionAvg(weatherMeasurement.getWind().getDir());
 						measurement.setTemperature1(weatherMeasurement.getTemp().getTemp());

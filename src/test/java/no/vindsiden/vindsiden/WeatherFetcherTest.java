@@ -9,6 +9,7 @@ import no.vindsiden.domain.WeatherStationType;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -50,21 +51,31 @@ public class WeatherFetcherTest {
 		configuration.addWeatherStation(weatherStation);
 		
 		executeProcess();
+	}
+	
+	@Test
+	public void nlskExecutionTest() {
+		WeatherStation weatherStation = new WeatherStation();
+		weatherStation.setEnabled(true);
+		weatherStation.setName("NLSK");
+		weatherStation.setStationType(WeatherStationType.NLSK);
+		weatherStation.setUrl("http://nlsk.no-ip.org/v%C3%A6rdata.xml");
+
+		configuration.addWeatherStation(weatherStation);
 		
-		fetcher.execute();
+		executeProcess();
 	}
 	
 	@Test
 	public void testConfiguration() {
 		configuration = Configuration.getConfiguration();
-		executeProcess();
-		
-		fetcher.execute();		
+		executeProcess();	
 	}
 
 	private void executeProcess() {
 		fetcher = new WeatherFetcher(configuration);
 		fetcher.setHttpClient(vindsidenHttpClientMock);
+		fetcher.execute();	
 	}
 
 }

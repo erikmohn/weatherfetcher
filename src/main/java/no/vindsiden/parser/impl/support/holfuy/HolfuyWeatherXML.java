@@ -10,17 +10,17 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 public class HolfuyWeatherXML {
 
 	@XStreamImplicit
-	private List<WeatherMeasurement> measurements;
+	private List<HolfuyWeatherMeasurement> measurements;
 
 	public HolfuyWeatherXML() {
-		measurements = new ArrayList<WeatherMeasurement>();
+		measurements = new ArrayList<HolfuyWeatherMeasurement>();
 	}
 
-	public List<WeatherMeasurement> getMeasurements() {
+	public List<HolfuyWeatherMeasurement> getMeasurements() {
 		return measurements;
 	}
 
-	public void add(WeatherMeasurement measurement) {
+	public void add(HolfuyWeatherMeasurement measurement) {
 		measurements.add(measurement);
 	}
 
