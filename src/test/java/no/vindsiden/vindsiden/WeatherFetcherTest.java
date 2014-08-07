@@ -54,6 +54,7 @@ public class WeatherFetcherTest {
 	}
 	
 	@Test
+	@Ignore
 	public void nlskExecutionTest() {
 		WeatherStation weatherStation = new WeatherStation();
 		weatherStation.setEnabled(true);
@@ -67,6 +68,7 @@ public class WeatherFetcherTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testConfiguration() {
 		configuration = Configuration.getConfiguration();
 		executeProcess();	
