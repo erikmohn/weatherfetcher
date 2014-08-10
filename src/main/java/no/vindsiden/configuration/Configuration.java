@@ -67,7 +67,9 @@ public class Configuration {
 	}
 	
 	public void clearWeatherStations() {
-		weatherStationList.clear();
+		if (weatherStationList != null) {
+			weatherStationList.clear();			
+		}
 	}
 	
 }

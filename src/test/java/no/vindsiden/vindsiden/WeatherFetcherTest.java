@@ -1,9 +1,11 @@
 package no.vindsiden.vindsiden;
 import java.io.UnsupportedEncodingException;
 
+import junit.framework.Assert;
 import no.vindsiden.VindsidenHttpClient;
 import no.vindsiden.WeatherFetcher;
 import no.vindsiden.configuration.Configuration;
+import no.vindsiden.domain.Measurement;
 import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.domain.WeatherStationType;
 
@@ -54,7 +56,6 @@ public class WeatherFetcherTest {
 	}
 	
 	@Test
-	@Ignore
 	public void nlskExecutionTest() {
 		WeatherStation weatherStation = new WeatherStation();
 		weatherStation.setEnabled(true);
@@ -68,7 +69,6 @@ public class WeatherFetcherTest {
 	}
 	
 	@Test
-	@Ignore
 	public void testConfiguration() {
 		configuration = Configuration.getConfiguration();
 		executeProcess();	
@@ -78,6 +78,30 @@ public class WeatherFetcherTest {
 		fetcher = new WeatherFetcher(configuration);
 		fetcher.setHttpClient(vindsidenHttpClientMock);
 		fetcher.execute();	
+	}
+	
+	@Test
+	public void testMinimumWindZero() {
+		Measurement m = new Measurement();
+		m.setWindMin(0.0);
+		
+		Assert.assertEquals(0.0, m.getWindMin());
+	}
+	
+	@Test
+	public void testMinimumWindNegative() {
+		Measurement m = new Measurement();
+		m.setWindMin(-1.0);
+		
+		Assert.assertEquals(0.0, m.getWindMin());
+	}
+	
+	@Test
+	public void testMinimumWindPositive() {
+		Measurement m = new Measurement();
+		m.setWindMin(1.0);
+		
+		Assert.assertEquals(1.0, m.getWindMin());
 	}
 
 }

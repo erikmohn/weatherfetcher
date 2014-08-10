@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 
 import no.vindsiden.parser.impl.support.JodaTimeConverter;
 
+import org.apache.commons.lang.math.NumberUtils;
 import org.joda.time.DateTime;
 
 import com.thoughtworks.xstream.XStream;
@@ -20,7 +21,7 @@ public class Measurement {
 	private Double WindVectorAvg;
 	private Double WindStDev;
 	private Double WindMax;
-	private Double WindMin;
+	private Double windMin;
 	private int DirectionAvg;
 	private int DirectionVectorAvg;
 	private Double DirectionStDev;
@@ -87,11 +88,11 @@ public class Measurement {
 	}
 
 	public Double getWindMin() {
-		return WindMin;
+		return windMin;
 	}
 
 	public void setWindMin(Double windMin) {
-		WindMin = windMin;
+		this.windMin = windMin < 0 ? 0: windMin;
 	}
 
 	public int getDirectionAvg() {
