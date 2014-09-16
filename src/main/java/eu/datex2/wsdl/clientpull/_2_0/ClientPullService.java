@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * 
  */
 @WebServiceClient(name = "clientPullService", 
-                  wsdlLocation = "classpath:wsdl/Pull.wsdl",
+                  wsdlLocation = "src/main/resources/wsdl/Pull.wsdl",
                   targetNamespace = "http://datex2.eu/wsdl/clientPull/2_0") 
 public class ClientPullService extends Service {
 
