@@ -62,8 +62,8 @@ public class WeatherFetcher {
 				log("Error occured while processing: " + weatherStation);
 				if (!inErrorHandling) {
 					failedWeatherStations.add(weatherStation);					
-					e.printStackTrace();
 				}
+				e.printStackTrace();
 			}
 		}
 	}
