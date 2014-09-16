@@ -11,6 +11,12 @@
 			<version>17.0</version>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>
 			<version>1.7.2</version>
@@ -84,28 +90,31 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-codegen-plugin</artifactId>
-				<version>3.0.1</version>
-				<executions>
-					<execution>
-						<id>generate-sources</id>
-						<phase>generate-sources</phase>
-						<configuration>
-							<sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
-							<wsdlOptions>
-								<wsdlOption>
-									<wsdl>${basedir}/src/main/resources/wsdl/Pull.wsdl</wsdl>
-								</wsdlOption>
-							</wsdlOptions>
-						</configuration>
-						<goals>
-							<goal>wsdl2java</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.cxf</groupId> -->
+			<!-- <artifactId>cxf-codegen-plugin</artifactId> -->
+			<!-- <version>3.0.1</version> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <id>generate-sources</id> -->
+			<!-- <phase>generate-sources</phase> -->
+			<!-- <configuration> -->
+			<!-- <sourceRoot>${project.build.directory}/generated/cxf</sourceRoot> -->
+			<!-- <defaultOptions> -->
+			<!-- <frontEnd>jaxws21</frontEnd> -->
+			<!-- </defaultOptions> -->
+			<!-- <wsdlOptions> -->
+			<!-- <wsdlOption> -->
+			<!-- <wsdl>${basedir}/src/main/resources/wsdl/Pull.wsdl</wsdl> -->
+			<!-- </wsdlOption> -->
+			<!-- </wsdlOptions> -->
+			<!-- </configuration> -->
+			<!-- <goals> -->
+			<!-- <goal>wsdl2java</goal> -->
+			<!-- </goals> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
 		</plugins>
 	</build>
 </project>

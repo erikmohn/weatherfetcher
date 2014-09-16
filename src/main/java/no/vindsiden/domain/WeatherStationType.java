@@ -7,6 +7,7 @@ public enum WeatherStationType {
 	HOLFUY,
 	NORTEK,
 	WEATHERDISPLAY,
-	NLSK
+	NLSK,
+	DATEXII
 	
 }

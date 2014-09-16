@@ -69,6 +69,20 @@ public class WeatherFetcherTest {
 	}
 	
 	@Test
+	public void datexIIExecutionTest() {
+		WeatherStation weatherStation = new WeatherStation();
+		weatherStation.setEnabled(true);
+		weatherStation.setName("Dyranut");
+		weatherStation.setStationType(WeatherStationType.DATEXII);
+		weatherStation.setUrl("");
+
+		configuration.addWeatherStation(weatherStation);
+		
+		executeProcess();
+	}
+	
+	
+	@Test
 	public void testConfiguration() {
 		configuration = Configuration.getConfiguration();
 		executeProcess();	

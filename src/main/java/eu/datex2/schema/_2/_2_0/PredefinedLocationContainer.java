@@ -1,0 +1,66 @@
+
+package eu.datex2.schema._2._2_0;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Java class for PredefinedLocationContainer complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
+ * <pre>
+ * &lt;complexType name="PredefinedLocationContainer">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="predefinedLocationContainerExtension" type="{http://datex2.eu/schema/2/2_0}_ExtensionType" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "PredefinedLocationContainer", propOrder = {
+    "predefinedLocationContainerExtension"
+})
+@XmlSeeAlso({
+    PredefinedLocation.class,
+    PredefinedNonOrderedLocationGroup.class,
+    PredefinedItinerary.class
+})
+public abstract class PredefinedLocationContainer {
+
+    protected ExtensionType predefinedLocationContainerExtension;
+
+    /**
+     * Gets the value of the predefinedLocationContainerExtension property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ExtensionType }
+     *     
+     */
+    public ExtensionType getPredefinedLocationContainerExtension() {
+        return predefinedLocationContainerExtension;
+    }
+
+    /**
+     * Sets the value of the predefinedLocationContainerExtension property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ExtensionType }
+     *     
+     */
+    public void setPredefinedLocationContainerExtension(ExtensionType value) {
+        this.predefinedLocationContainerExtension = value;
+    }
+
+}

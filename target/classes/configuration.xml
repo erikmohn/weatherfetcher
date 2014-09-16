@@ -115,4 +115,12 @@
 		<url>http://nlsk.no-ip.org/v%C3%A6rdata.xml</url>
 	</weatherstation>
 
+	<weatherstation>
+		<weatherStationId>66</weatherStationId>
+		<name>Dyranut</name>
+		<type>DATEXII</type>
+		<enabled>true</enabled>
+		<url></url>
+	</weatherstation>
+
 </configuration>
