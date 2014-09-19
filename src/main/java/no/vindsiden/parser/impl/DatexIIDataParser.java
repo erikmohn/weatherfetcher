@@ -32,7 +32,7 @@ public class DatexIIDataParser extends WeatherDataParser {
 		
 		MeasuredDataPublication m =  (MeasuredDataPublication) data.getPayloadPublication();
 		
-		float windSpeed = -1;
+		float windSpeedKmh = -1;
 		BigInteger direction = null; 
 		float temperature = -1;
 		
@@ -43,7 +43,7 @@ public class DatexIIDataParser extends WeatherDataParser {
 					if (value.getMeasuredValue().getBasicData() instanceof WindInformation){
 						WindInformation wind = (WindInformation) value.getMeasuredValue().getBasicData();
 						if (wind.getWind().getWindSpeed() != null) {
-							windSpeed = wind.getWind().getWindSpeed().getSpeed();							
+							windSpeedKmh = wind.getWind().getWindSpeed().getSpeed();							
 						} else {
 							direction = wind.getWind().getWindDirectionBearing().getDirectionBearing();
 						}
@@ -60,12 +60,14 @@ public class DatexIIDataParser extends WeatherDataParser {
 		}		
 	
 
+		double windSpeedMs = Double.valueOf(windSpeedKmh) * 0.27777777777778;
+		
 		Measurement measurement = new Measurement();
 		measurement.setDirectionAvg(direction.intValue());
 		measurement.setTemperature1(Double.valueOf(temperature));
-		measurement.setWindAvg(Double.valueOf(windSpeed));
-		measurement.setWindMin(Double.valueOf(windSpeed));
-		measurement.setWindMax(Double.valueOf(windSpeed));
+		measurement.setWindAvg(windSpeedMs);
+		measurement.setWindMin(windSpeedMs);
+		measurement.setWindMax(windSpeedMs);
 		measurement.setStationID(66);
 		measurement.setStationName("Dyranut");
 		
