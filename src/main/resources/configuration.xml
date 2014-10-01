@@ -59,6 +59,7 @@
 		<name>Srfsnosk8 Halden brygge</name>
 		<type>DAVIS_WEATHER_LINK</type>
 		<enabled>true</enabled>
+		<windUnitType>KNOTS</windUnitType>
 		<weatherStationId>67</weatherStationId>
 		<url>http://www.weatherlink.com/user/haldenbrygge/index.php?view=summary&amp;amp;amp;headers=0
 		</url>

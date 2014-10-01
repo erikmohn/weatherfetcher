@@ -103,6 +103,6 @@ public class DavisWeatherLinkDataParser extends WeatherDataParser {
 	}
 
 	private double parseWindSpeedDouble(String key, int pos) {
-		return Double.parseDouble(data.get(key).get(pos).replace("m/s", "").trim());
+		return Double.parseDouble(data.get(key).get(pos).replace("m/s", "").replace("KT","").trim());
 	}
 }

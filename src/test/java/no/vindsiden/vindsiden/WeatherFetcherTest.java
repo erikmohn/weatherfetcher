@@ -8,6 +8,7 @@ import no.vindsiden.configuration.Configuration;
 import no.vindsiden.domain.Measurement;
 import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.domain.WeatherStationType;
+import no.vindsiden.parser.impl.support.WindUnitType;
 
 import org.junit.After;
 import org.junit.Before;
@@ -62,6 +63,20 @@ public class WeatherFetcherTest {
 		weatherStation.setName("NLSK");
 		weatherStation.setStationType(WeatherStationType.NLSK);
 		weatherStation.setUrl("http://nlsk.no-ip.org/v%C3%A6rdata.xml");
+
+		configuration.addWeatherStation(weatherStation);
+		
+		executeProcess();
+	}
+	
+	@Test
+	public void haldenBryggeTest() {
+		WeatherStation weatherStation = new WeatherStation();
+		weatherStation.setEnabled(true);
+		weatherStation.setName("Halden brygge");
+		weatherStation.setWindUnitType(WindUnitType.KNOTS);
+		weatherStation.setStationType(WeatherStationType.DAVIS_WEATHER_LINK);
+		weatherStation.setUrl("http://www.weatherlink.com/user/haldenbrygge/index.php?view=summary&amp;amp;amp;headers=0");
 
 		configuration.addWeatherStation(weatherStation);
 		
