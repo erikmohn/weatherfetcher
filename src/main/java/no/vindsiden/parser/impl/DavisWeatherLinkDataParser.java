@@ -12,6 +12,7 @@ import java.util.TimeZone;
 import no.vindsiden.domain.Measurement;
 import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.parser.WeatherDataParser;
+import no.vindsiden.parser.impl.support.WindUnitType;
 
 import org.apache.commons.lang.math.NumberUtils;
 import org.joda.time.DateTime;
@@ -77,9 +78,17 @@ public class DavisWeatherLinkDataParser extends WeatherDataParser {
 		m.setStationID(getWeatherStation().getWeatherStationId());	
 		m.setTime(new DateTime(DateTimeZone.forTimeZone(TimeZone.getTimeZone("Europe/Oslo"))));
 		
+		WindUnitType windUnit = getWeatherStation().getWindUnitType();
+		
 		Double avgWindSpeed = parseWindSpeedDouble("Average Wind Speed", 2); 
 		Double windSpeed = parseWindSpeedDouble("Wind Speed", 1);
 		Double maxWindSpeed = parseWindSpeedDouble("Wind Gust Speed", 2);
+		
+		if (windUnit == WindUnitType.KNOTS) {
+			avgWindSpeed = avgWindSpeed * 0.5144;
+			windSpeed = windSpeed * 0.5144;
+			maxWindSpeed = windSpeed * 0.5144;
+		}
 		
 		m.setWindAvg(avgWindSpeed);
 		m.setWindMin(NumberUtils.min(avgWindSpeed, maxWindSpeed, windSpeed));
