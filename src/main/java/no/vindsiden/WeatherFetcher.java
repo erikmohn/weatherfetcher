@@ -51,9 +51,9 @@ public class WeatherFetcher {
 	}
 	
 	private void printFrame(String string) {
-		System.out.println("############################################");
-		System.out.println("###\t\t " + string);
-		System.out.println("############################################");
+		log("---------------------------------------------");
+		log("--- " + string);
+		log("---------------------------------------------");
 		
 	}
 
