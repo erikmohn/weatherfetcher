@@ -35,13 +35,31 @@ public class WeatherFetcher {
 	}
 
 	public void execute() {
+		logStart();
 		validate();
 		processWeatherStations();
 		if (failedWeatherStationsExists()) {
 			log("Will do error handling of: " + failedWeatherStations);
 			executeErrorHandling();			
 		}	
+		logFinish();
 	}
+
+	private void logStart() {
+		printFrame("STARTING EXECTUION OF WEATHERFETCHER");
+		
+	}
+	
+	private void printFrame(String string) {
+		System.out.println("############################################");
+		System.out.println("###\t\t " + string);
+		System.out.println("############################################");
+		
+	}
+
+	private void logFinish() {
+		printFrame("EXECTUION OF WEATHERFETCHER FINISHED");	
+		}
 
 	private void validate() {
 		if ( weatherStations == null || weatherStations.size() == 0) {
