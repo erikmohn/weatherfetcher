@@ -85,9 +85,9 @@ public class DavisWeatherLinkDataParser extends WeatherDataParser {
 		Double maxWindSpeed = parseWindSpeedDouble("Wind Gust Speed", 2);
 		
 		if (windUnit == WindUnitType.KNOTS) {
-			avgWindSpeed = avgWindSpeed * 0.5144;
-			windSpeed = windSpeed * 0.5144;
-			maxWindSpeed = windSpeed * 0.5144;
+			avgWindSpeed = avgWindSpeed * 0.51444444444;
+			windSpeed = windSpeed * 0.51444444444;
+			maxWindSpeed = maxWindSpeed * 0.51444444444;
 		}
 		
 		m.setWindAvg(avgWindSpeed);
@@ -112,6 +112,7 @@ public class DavisWeatherLinkDataParser extends WeatherDataParser {
 	}
 
 	private double parseWindSpeedDouble(String key, int pos) {
-		return Double.parseDouble(data.get(key).get(pos).replace("m/s", "").replace("KT","").trim());
+		String windSpeed = data.get(key).get(pos).replace("m/s", "").replace("KT","").trim();		
+		return NumberUtils.isNumber(windSpeed) ? Double.parseDouble(windSpeed) : 0;
 	}
 }

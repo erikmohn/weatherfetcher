@@ -4,7 +4,6 @@ import java.text.DecimalFormat;
 
 import no.vindsiden.parser.impl.support.JodaTimeConverter;
 
-import org.apache.commons.lang.math.NumberUtils;
 import org.joda.time.DateTime;
 
 import com.thoughtworks.xstream.XStream;
