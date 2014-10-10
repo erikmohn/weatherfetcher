@@ -106,7 +106,12 @@ public class DavisWeatherLinkDataParser extends WeatherDataParser {
 	}
 	
 	private int parseDirection() {
-		String directionRaw = data.get("Wind Direction").get(1).replaceAll("\\D+","");
+		String directionRaw = null;
+		if (data.get("Wind Direction").get(1).contains("n/a")) {
+			throw new RuntimeException("Weather data not available!!");
+		} else {
+			directionRaw = data.get("Wind Direction").get(1).replaceAll("\\D+","");			
+		}
 		
 		return Integer.parseInt(directionRaw);
 	}

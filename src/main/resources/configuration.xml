@@ -67,7 +67,7 @@
 	<weatherstation>
 		<name>Rolfstangen</name>
 		<type>DAVIS_WEATHER_LINK</type>
-		<enabled>true</enabled>
+		<enabled>false</enabled>
 		<weatherStationId>58</weatherStationId>
 		<url>http://www.weatherlink.com/user/lbk/index.php?view=summary&amp;amp;amp;headers=0
 		</url>
