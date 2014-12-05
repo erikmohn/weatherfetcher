@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0" errors="0" skipped="1" tests="1" name="no.vindsiden.vindsiden.WeatherFetcherTest">
+<testsuite failures="0" time="29.836" errors="0" skipped="0" tests="8" name="no.vindsiden.vindsiden.WeatherFetcherTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_60\jre\bin"/>
@@ -63,7 +63,12 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0" classname="no.vindsiden.vindsiden.WeatherFetcherTest" name="no.vindsiden.vindsiden.WeatherFetcherTest">
-    <skipped/>
-  </testcase>
+  <testcase time="0.142" classname="no.vindsiden.vindsiden.WeatherFetcherTest" name="testMinimumWindPositive"/>
+  <testcase time="0" classname="no.vindsiden.vindsiden.WeatherFetcherTest" name="testMinimumWindNegative"/>
+  <testcase time="28.269" classname="no.vindsiden.vindsiden.WeatherFetcherTest" name="testConfiguration"/>
+  <testcase time="0.291" classname="no.vindsiden.vindsiden.WeatherFetcherTest" name="holfuyExecutionTest"/>
+  <testcase time="0.006" classname="no.vindsiden.vindsiden.WeatherFetcherTest" name="nlskExecutionTest"/>
+  <testcase time="0.297" classname="no.vindsiden.vindsiden.WeatherFetcherTest" name="haldenBryggeTest"/>
+  <testcase time="0" classname="no.vindsiden.vindsiden.WeatherFetcherTest" name="testMinimumWindZero"/>
+  <testcase time="0.831" classname="no.vindsiden.vindsiden.WeatherFetcherTest" name="datexIIExecutionTest"/>
 </testsuite>

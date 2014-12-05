@@ -468,6 +468,7 @@ eu\datex2\schema\_2\_2_0\DisturbanceActivityTypeEnum.class
 eu\datex2\schema\_2\_2_0\ColourEnum.class
 eu\datex2\schema\_2\_2_0\VmsPictogramExtensionType.class
 eu\datex2\schema\_2\_2_0\DateTimeValue.class
+no\vindsiden\parser\impl\DatexIIDataParser.class
 eu\datex2\schema\_2\_2_0\Roadworks.class
 eu\datex2\schema\_2\_2_0\OpenlrOrientationEnum.class
 eu\datex2\schema\_2\_2_0\TpegPoint.class

@@ -41,6 +41,7 @@ public class HolfuyDataParser extends WeatherDataParser {
 	private void parseXml() {
 		XStream xStream = new XStream();
 		xStream.processAnnotations(HolfuyWeatherXML.class);
+		xStream.ignoreUnknownElements();
 		Element xml = getXml();
 
 		holfuyData = (HolfuyWeatherXML) xStream.fromXML(xml.html());
