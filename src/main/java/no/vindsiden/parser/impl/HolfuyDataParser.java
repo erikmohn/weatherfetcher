@@ -1,14 +1,8 @@
 package no.vindsiden.parser.impl;
 
-import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.Charset;
 import java.util.List;
 
 import no.vindsiden.domain.Measurement;
@@ -17,13 +11,10 @@ import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.parser.impl.support.holfuy.HolfuyMeasurementTransformer;
 import no.vindsiden.parser.impl.support.holfuy.HolfuyWeatherXML;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-
-import sun.nio.cs.StandardCharsets;
 
 import com.google.common.collect.Lists;
 import com.thoughtworks.xstream.XStream;
