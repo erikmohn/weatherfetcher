@@ -84,7 +84,7 @@ public class WeatherFetcherTest {
 	}
 	
 	@Test
-	public void datexIIExecutionTest() {
+	public void datexIIExecutionDyranutTest() {
 		WeatherStation weatherStation = new WeatherStation();
 		weatherStation.setEnabled(true);
 		weatherStation.setName("Dyranut");
@@ -96,6 +96,19 @@ public class WeatherFetcherTest {
 		executeProcess();
 	}
 	
+	@Test
+	public void datexIIExecutionEldrevannTest() {
+		WeatherStation weatherStation = new WeatherStation();
+		weatherStation.setEnabled(true);
+		weatherStation.setName("Eldrevann");
+		weatherStation.setStationType(WeatherStationType.DATEXII);
+		weatherStation.setUrl("");
+		weatherStation.setWeatherStationId(65);
+
+		configuration.addWeatherStation(weatherStation);
+		
+		executeProcess();
+	}
 	
 	@Test
 	public void testConfiguration() {

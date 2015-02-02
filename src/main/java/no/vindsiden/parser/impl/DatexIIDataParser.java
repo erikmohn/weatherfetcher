@@ -9,6 +9,7 @@ import com.google.common.collect.Lists;
 import no.vindsiden.domain.Measurement;
 import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.parser.WeatherDataParser;
+import no.vindsiden.parser.impl.support.vegvesen.VegvesenStationId;
 import eu.datex2.schema._2._2_0.D2LogicalModel;
 import eu.datex2.schema._2._2_0.MeasuredDataPublication;
 import eu.datex2.schema._2._2_0.SiteMeasurements;
@@ -38,7 +39,7 @@ public class DatexIIDataParser extends WeatherDataParser {
 		
 		for (SiteMeasurements me : m.getSiteMeasurements()) {
 			
-			if (me.getMeasurementSiteReference().getId().equals("505")) {				
+			if (me.getMeasurementSiteReference().getId().equals(VegvesenStationId.valueOf(getWeatherStation().getName()).getVindsidenId())) {				
 				for (SiteMeasurementsIndexMeasuredValue value : me.getMeasuredValue()) {
 					if (value.getMeasuredValue().getBasicData() instanceof WindInformation){
 						WindInformation wind = (WindInformation) value.getMeasuredValue().getBasicData();
@@ -68,8 +69,8 @@ public class DatexIIDataParser extends WeatherDataParser {
 		measurement.setWindAvg(windSpeedMs);
 		measurement.setWindMin(windSpeedMs);
 		measurement.setWindMax(windSpeedMs);
-		measurement.setStationID(66);
-		measurement.setStationName("Dyranut");
+		measurement.setStationID(getWeatherStation().getWeatherStationId());
+		measurement.setStationName(getWeatherStation().getName());
 		
 		return Lists.newArrayList(measurement);
 	}

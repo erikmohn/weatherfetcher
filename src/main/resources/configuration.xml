@@ -132,7 +132,7 @@
 	</weatherstation>
 
 	<weatherstation>
-		<weatherStationId>66</weatherStationId>
+		<weatherStationId>68</weatherStationId>
 		<name>Eldrevann</name>
 		<type>DATEXII</type>
 		<enabled>true</enabled>
