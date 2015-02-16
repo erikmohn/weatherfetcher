@@ -147,4 +147,12 @@
 		<url></url>
 	</weatherstation>
 
+	<weatherstation>
+		<weatherStationId>70</weatherStationId>
+		<name>Torsetlia</name>
+		<type>DATEXII</type>
+		<enabled>true</enabled>
+		<url></url>
+	</weatherstation>
+
 </configuration>

@@ -4,7 +4,8 @@ public enum VegvesenStationId {
 
 	Dyranut("505"),
 	Eldrevann("65"),
-	Strynefjellet("213");
+	Strynefjellet("213"),
+	Torsetlia("39");
 	
 	private VegvesenStationId(String vegvesenId) {
 		this.vegvesenId = vegvesenId;
