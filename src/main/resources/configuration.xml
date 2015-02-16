@@ -139,4 +139,12 @@
 		<url></url>
 	</weatherstation>
 
+	<weatherstation>
+		<weatherStationId>69</weatherStationId>
+		<name>Strynefjellet</name>
+		<type>DATEXII</type>
+		<enabled>true</enabled>
+		<url></url>
+	</weatherstation>
+
 </configuration>

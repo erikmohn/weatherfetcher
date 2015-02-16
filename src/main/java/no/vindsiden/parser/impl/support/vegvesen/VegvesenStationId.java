@@ -3,7 +3,8 @@ package no.vindsiden.parser.impl.support.vegvesen;
 public enum VegvesenStationId {
 
 	Dyranut("505"),
-	Eldrevann("65");
+	Eldrevann("65"),
+	Strynefjellet("213");
 	
 	private VegvesenStationId(String vegvesenId) {
 		this.vegvesenId = vegvesenId;
