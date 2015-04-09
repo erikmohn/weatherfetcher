@@ -13,7 +13,9 @@ public enum HolfuyStationId {
 	s135(2135),
 	s142(2145),
 	s158(2158),
-	s174(2174);
+	s174(2174),
+	s165(2165),
+	s197(2197);
 	
 	private Integer vindsidenId;
 	
