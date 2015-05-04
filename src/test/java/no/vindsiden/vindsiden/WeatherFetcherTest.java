@@ -111,6 +111,20 @@ public class WeatherFetcherTest {
 	}
 	
 	@Test
+	public void testHortenHavn() {
+		WeatherStation weatherStation = new WeatherStation();
+		weatherStation.setEnabled(true);
+		weatherStation.setName("Horten havn");
+		weatherStation.setWeatherStationId(71);
+		weatherStation.setStationType(WeatherStationType.HORTENHAVN);
+		weatherStation.setUrl("http://nettkamera.cid.no:8008/000CC80294AC/state.xml");
+
+		configuration.addWeatherStation(weatherStation);
+		
+		executeProcess();		
+	}
+	
+	@Test
 	public void testConfiguration() {
 		configuration = Configuration.getConfiguration();
 		executeProcess();	

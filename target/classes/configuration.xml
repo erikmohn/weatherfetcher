@@ -155,4 +155,19 @@
 		<url></url>
 	</weatherstation>
 
+	<weatherstation>
+		<name>Horten havn</name>
+		<type>HORTENHAVN</type>
+		<enabled>true</enabled>
+		<weatherStationId>71</weatherStationId>
+		<url>http://nettkamera.cid.no:8008/000CC80294AB/state.xml</url>
+	</weatherstation>
+
+	<weatherstation>
+		<name>Åsgårdstrand havn</name>
+		<type>HORTENHAVN</type>
+		<enabled>true</enabled>
+		<weatherStationId>72</weatherStationId>
+		<url>http://nettkamera.cid.no:8008/000CC80294AC/state.xml</url>
+	</weatherstation>
 </configuration>

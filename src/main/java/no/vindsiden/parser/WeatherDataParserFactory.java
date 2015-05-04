@@ -5,6 +5,7 @@ import no.vindsiden.parser.impl.DatexIIDataParser;
 import no.vindsiden.parser.impl.DavisDataParser;
 import no.vindsiden.parser.impl.DavisWeatherLinkDataParser;
 import no.vindsiden.parser.impl.HolfuyDataParser;
+import no.vindsiden.parser.impl.HortenHavnDataParser;
 import no.vindsiden.parser.impl.NLSKDataParser;
 import no.vindsiden.parser.impl.NortekDataParser;
 import no.vindsiden.parser.impl.WeatherDisplayDataParser;
@@ -36,6 +37,9 @@ public class WeatherDataParserFactory {
 			break;
 		case DATEXII:
 			parser = new DatexIIDataParser(weatherStation);
+			break;
+		case HORTENHAVN:
+			parser = new HortenHavnDataParser(weatherStation);
 			break;
 		default:
 			throw new RuntimeException(
