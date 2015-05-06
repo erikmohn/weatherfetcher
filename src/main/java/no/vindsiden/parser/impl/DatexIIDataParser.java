@@ -46,7 +46,9 @@ public class DatexIIDataParser extends WeatherDataParser {
 						if (wind.getWind().getWindSpeed() != null) {
 							windSpeedKmh = wind.getWind().getWindSpeed().getSpeed();							
 						} else {
-							direction = wind.getWind().getWindDirectionBearing().getDirectionBearing();
+							if (wind.getWind().getWindDirectionBearing() != null) {
+								direction = wind.getWind().getWindDirectionBearing().getDirectionBearing();								
+							}
 						}
 					}
 					

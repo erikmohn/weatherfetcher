@@ -98,7 +98,12 @@ public class DavisWeatherLinkDataParser extends WeatherDataParser {
 		m.setWindStDev(0.0);
 		m.setDirectionAvg(parseDirection());
 		m.setDirectionStDev(0.0);
-		m.setTemperature1(Double.parseDouble(data.get("Outside Temp").get(1).replace("C", "")));
+		try {
+			m.setTemperature1(Double.parseDouble(data.get("Outside Temp").get(1).replace("C", "")));			
+		} catch (Exception e) {
+			m.setTemperature1(0D);
+		}
+		
 		m.setTemperature2(-999.0);
 		m.setLight(-999);
 		m.setBattery(-999.0);
