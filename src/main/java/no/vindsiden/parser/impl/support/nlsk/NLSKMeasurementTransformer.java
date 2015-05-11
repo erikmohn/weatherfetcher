@@ -19,11 +19,13 @@ public class NLSKMeasurementTransformer {
 
 					@Override
 					public boolean apply(NLSKWeatherMeasurement weatherMeasurement) {
-						boolean configuredStation = true; 
-						try {
-							NLSKStationId.valueOf(weatherMeasurement.getNavn());
-						} catch (IllegalArgumentException e) {
-							configuredStation = false;
+						boolean configuredStation = false; 
+							for (NLSKStationId id : NLSKStationId.values()) {
+								if (id.getNLSKId() == weatherMeasurement.getId()) {
+									configuredStation = true;
+								}
+							}
+						if (!configuredStation) {
 							System.out.println("Weatherstation: " + weatherMeasurement.getId() + " : "+ weatherMeasurement.getNavn() + " not configured!");
 						}
 						
@@ -42,7 +44,13 @@ public class NLSKMeasurementTransformer {
 						measurement.setWindAvg(weatherMeasurement.getSnitt15());
 						measurement.setWindMin(weatherMeasurement.getMin15());
 						measurement.setWindMax(weatherMeasurement.getMax15());
-						measurement.setStationID(NLSKStationId.valueOf(weatherMeasurement.getNavn()).getVindsidenId());
+						NLSKStationId station = null;
+						for (NLSKStationId id : NLSKStationId.values()) {
+							if (id.getNLSKId() == weatherMeasurement.getId()) {
+								station = id;
+							}
+						}
+						measurement.setStationID(station.getVindsidenId());
 						measurement.setStationName(weatherMeasurement.getNavn());
 						return measurement;
 					}
