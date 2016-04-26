@@ -160,7 +160,7 @@
 		<type>HORTENHAVN</type>
 		<enabled>true</enabled>
 		<weatherStationId>71</weatherStationId>
-		<url>http://nettkamera.cid.no:8008/000CC80294AB/state.xml</url>
+		<url>http://nettkamera.cid.no:8008/000cc80294ab/state.xml</url>
 	</weatherstation>
 
 	<weatherstation>
@@ -168,6 +168,6 @@
 		<type>HORTENHAVN</type>
 		<enabled>true</enabled>
 		<weatherStationId>72</weatherStationId>
-		<url>http://nettkamera.cid.no:8008/000CC80294AC/state.xml</url>
+		<url>http://nettkamera.cid.no:8008/000cc802be63/state.xml</url>
 	</weatherstation>
 </configuration>
