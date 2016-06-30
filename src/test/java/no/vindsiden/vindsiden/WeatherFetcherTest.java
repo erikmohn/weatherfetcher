@@ -44,6 +44,20 @@ public class WeatherFetcherTest {
 	}
 	
 	@Test
+	public void testMossHavn() {
+		WeatherStation weatherStation = new WeatherStation();
+		weatherStation.setEnabled(true);
+		weatherStation.setName("Moss Havn");
+		weatherStation.setStationType(WeatherStationType.DAVIS);
+		weatherStation.setUrl("http://weather.moss-havn.no/");
+		weatherStation.setWindUnitType(WindUnitType.KNOTS);
+		
+		configuration.addWeatherStation(weatherStation);
+		
+		executeProcess();
+	}
+	
+	@Test
 	public void holfuyExecutionTest() {
 		WeatherStation weatherStation = new WeatherStation();
 		weatherStation.setEnabled(true);
