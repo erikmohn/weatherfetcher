@@ -170,4 +170,12 @@
 		<weatherStationId>72</weatherStationId>
 		<url>http://nettkamera.cid.no:8008/000cc802be63/state.xml</url>
 	</weatherstation>
+	
+	<weatherstation>
+		<name>Læsø</name>
+		<type>LEASOE</type>
+		<enabled>true</enabled>
+		<weatherStationId>74</weatherStationId>
+		<url>http://www.laesoe-vejr.dk/</url>
+	</weatherstation>
 </configuration>

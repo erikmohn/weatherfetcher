@@ -84,6 +84,19 @@ public class WeatherFetcherTest {
 	}
 	
 	@Test
+	public void leasoeExecutionTest() {
+		WeatherStation weatherStation = new WeatherStation();
+		weatherStation.setEnabled(true);
+		weatherStation.setName("Læsø");
+		weatherStation.setStationType(WeatherStationType.LEASOE);
+		weatherStation.setUrl("http://www.laesoe-vejr.dk/");
+
+		configuration.addWeatherStation(weatherStation);
+		
+		executeProcess();
+	}
+	
+	@Test
 	public void haldenBryggeTest() {
 		WeatherStation weatherStation = new WeatherStation();
 		weatherStation.setEnabled(true);

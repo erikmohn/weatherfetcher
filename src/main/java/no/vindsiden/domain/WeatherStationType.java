@@ -9,6 +9,7 @@ public enum WeatherStationType {
 	WEATHERDISPLAY,
 	NLSK,
 	DATEXII,
-	HORTENHAVN
+	HORTENHAVN,
+	LEASOE
 	
 }
