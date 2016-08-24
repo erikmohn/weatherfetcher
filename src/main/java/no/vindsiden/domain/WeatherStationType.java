@@ -10,6 +10,7 @@ public enum WeatherStationType {
 	NLSK,
 	DATEXII,
 	HORTENHAVN,
-	LEASOE
+	LEASOE,
+	WEATHER_UNDERGROUND
 	
 }

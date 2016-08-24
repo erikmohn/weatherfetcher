@@ -10,6 +10,7 @@ import no.vindsiden.parser.impl.LaesoeDataParser;
 import no.vindsiden.parser.impl.NLSKDataParser;
 import no.vindsiden.parser.impl.NortekDataParser;
 import no.vindsiden.parser.impl.WeatherDisplayDataParser;
+import no.vindsiden.parser.impl.WeatherUndergroundDataParser;
 
 public class WeatherDataParserFactory {
 
@@ -44,6 +45,9 @@ public class WeatherDataParserFactory {
 			break;
 		case LEASOE:
 			parser = new LaesoeDataParser(weatherStation);
+			break;
+		case WEATHER_UNDERGROUND:
+			parser = new WeatherUndergroundDataParser(weatherStation);
 			break;
 		default:
 			throw new RuntimeException(

@@ -1,5 +1,8 @@
 package no.vindsiden.vindsiden;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import junit.framework.Assert;
 import no.vindsiden.VindsidenHttpClient;
@@ -9,13 +12,22 @@ import no.vindsiden.domain.Measurement;
 import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.domain.WeatherStationType;
 import no.vindsiden.parser.impl.support.WindUnitType;
+import no.vindsiden.parser.impl.support.holfuy.HolfuyWeatherXML;
+import no.vindsiden.parser.impl.support.weather.underground.WeatherUndergroundResponse;
 
+import org.apache.commons.lang.StringEscapeUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import com.google.common.html.HtmlEscapers;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 
 /**
@@ -185,6 +197,22 @@ public class WeatherFetcherTest {
 		m.setWindMin(1.0);
 		
 		Assert.assertEquals(1.0, m.getWindMin());
+	}
+	
+	@Test
+	public void testWeatherUnderground() throws IOException {
+
+		WeatherStation weatherStation = new WeatherStation();
+		weatherStation.setEnabled(true);
+		weatherStation.setName("Larkollen");
+		weatherStation.setWeatherStationId(71);
+		weatherStation.setStationType(WeatherStationType.WEATHER_UNDERGROUND);
+		weatherStation.setUrl("n/a");
+
+		configuration.addWeatherStation(weatherStation);
+		
+		executeProcess();		
+		
 	}
 
 }
