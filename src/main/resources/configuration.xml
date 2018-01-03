@@ -12,24 +12,6 @@
 	</weatherstation>
 
 	<weatherstation>
-		<name>iLarvik.net</name>
-		<type>DAVIS</type>
-		<windUnitType>KNOTS</windUnitType>
-		<enabled>true</enabled>
-		<weatherStationId>54</weatherStationId>
-		<url>http://www.ilarvik.net/wmr/</url>
-	</weatherstation>
-
-	<weatherstation>
-		<name>iStavern.net</name>
-		<type>DAVIS</type>
-		<windUnitType>KNOTS</windUnitType>
-		<enabled>true</enabled>
-		<weatherStationId>55</weatherStationId>
-		<url>http://www.istavern.net/stavern/</url>
-	</weatherstation>
-
-	<weatherstation>
 		<name>gunnarbu.com</name>
 		<type>DAVIS</type>
 		<windUnitType>KNOTS</windUnitType>
@@ -80,22 +62,6 @@
 		<weatherStationId>60</weatherStationId>
 		<url>http://www.weatherlink.com/user/fulehuk/index.php?view=summary&amp;amp;amp;headers=0
 		</url>
-	</weatherstation>
-
-	<weatherstation>
-		<weatherStationId>53</weatherStationId>
-		<name>Kystvind</name>
-		<type>WEATHERDISPLAY</type>
-		<enabled>true</enabled>
-		<url>http://kystvind.no/</url>
-	</weatherstation>
-
-	<weatherstation>
-		<weatherStationId>56</weatherStationId>
-		<name>Steilene</name>
-		<type>NORTEK</type>
-		<enabled>true</enabled>
-		<url>http://aos.nortek.no/Data/Index/f63e9bad</url>
 	</weatherstation>
 
 	<weatherstation>
@@ -153,30 +119,6 @@
 		<type>DATEXII</type>
 		<enabled>true</enabled>
 		<url></url>
-	</weatherstation>
-
-	<weatherstation>
-		<name>Horten havn</name>
-		<type>HORTENHAVN</type>
-		<enabled>true</enabled>
-		<weatherStationId>71</weatherStationId>
-		<url>http://nettkamera.cid.no:8008/000cc80294ab/state.xml</url>
-	</weatherstation>
-
-	<weatherstation>
-		<name>Åsgårdstrand havn</name>
-		<type>HORTENHAVN</type>
-		<enabled>true</enabled>
-		<weatherStationId>72</weatherStationId>
-		<url>http://nettkamera.cid.no:8008/000cc802be63/state.xml</url>
-	</weatherstation>
-
-	<weatherstation>
-		<name>Læsø</name>
-		<type>LEASOE</type>
-		<enabled>true</enabled>
-		<weatherStationId>74</weatherStationId>
-		<url>http://www.laesoe-vejr.dk/</url>
 	</weatherstation>
 
 	<weatherstation>
