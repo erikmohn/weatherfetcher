@@ -78,7 +78,7 @@
 		<name>Holfuy</name>
 		<type>HOLFUY</type>
 		<enabled>true</enabled>
-		<url>http://holfuy.hu/en/takeit/vindsiden.php</url>
+		<url><![CDATA[ http://api.holfuy.com/live/?s=119,124,121,112,118,107,133,134,135,142,165,174,197&tu=C&su=m/s&pw=iXA3mY3kfP&m=XML ]]></url>
 	</weatherstation>
 
 	<weatherstation>
