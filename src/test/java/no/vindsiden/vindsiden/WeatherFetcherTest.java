@@ -75,7 +75,7 @@ public class WeatherFetcherTest {
 		weatherStation.setEnabled(true);
 		weatherStation.setName("Holfuy");
 		weatherStation.setStationType(WeatherStationType.HOLFUY);
-		weatherStation.setUrl("http://holfuy.hu/en/takeit/vindsiden.php");
+		weatherStation.setUrl("http://api.holfuy.com/live/?s=119,124,121,112,118,107,133,134,135,142,165,174,197&tu=C&su=m/s&pw=iXA3mY3kfP&m=XML");
 
 		configuration.addWeatherStation(weatherStation);
 		
@@ -99,7 +99,7 @@ public class WeatherFetcherTest {
 	public void leasoeExecutionTest() {
 		WeatherStation weatherStation = new WeatherStation();
 		weatherStation.setEnabled(true);
-		weatherStation.setName("Læsø");
+		weatherStation.setName("Lï¿½sï¿½");
 		weatherStation.setStationType(WeatherStationType.LEASOE);
 		weatherStation.setUrl("http://www.laesoe-vejr.dk/");
 
