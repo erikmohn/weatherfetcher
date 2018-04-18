@@ -121,8 +121,6 @@
 		<url></url>
 	</weatherstation>
 
-
-
 	<weatherstation>
 		<name>Larkollen 2</name>
 		<type>WEATHER_UNDERGROUND</type>

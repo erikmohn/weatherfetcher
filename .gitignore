@@ -4,6 +4,8 @@
 .gradle
 bin/
 tmp/
+.idea/
+*.iml
 *.tmp
 *.bak
 *.swp
