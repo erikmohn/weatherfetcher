@@ -7,6 +7,7 @@ import no.vindsiden.domain.Measurement;
 import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.parser.impl.support.kystvaer.KystvaerReport;
+import org.apache.commons.lang.math.NumberUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,8 +34,8 @@ public class KystvaerDataParser extends WeatherDataParser {
         Measurement m = new Measurement();
 
         m.setStationID(getWeatherStation().getWeatherStationId());
-        m.setWindMax(report.getWindMax());
-        m.setWindMin(report.getWindNow());
+        m.setWindMax(NumberUtils.max(report.getWindNow(), report.getWindMax(), report.getWindAvg()));
+        m.setWindMin(NumberUtils.min(report.getWindNow(), report.getWindMax(), report.getWindAvg()));
         m.setWindAvg(report.getWindAvg());
         m.setDirectionAvg(report.getWindDirection().intValue());
         m.setTemperature1(0.0);
