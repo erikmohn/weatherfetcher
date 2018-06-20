@@ -82,14 +82,6 @@
 	</weatherstation>
 
 	<weatherstation>
-		<weatherStationId>-1</weatherStationId>
-		<name>NLSK</name>
-		<type>NLSK</type>
-		<enabled>true</enabled>
-		<url>http://nlsk.no-ip.org/v%C3%A6rdata.xml</url>
-	</weatherstation>
-
-	<weatherstation>
 		<weatherStationId>66</weatherStationId>
 		<name>Dyranut</name>
 		<type>DATEXII</type>
