@@ -122,10 +122,9 @@
 	</weatherstation>
 
 	<weatherstation>
-		<name>Færder fyr</name>
+		<name>Kystvær</name>
 		<type>KYSTVAER</type>
 		<enabled>true</enabled>
-		<weatherStationId>76</weatherStationId>
 		<url>NA</url>
 	</weatherstation>
 </configuration>

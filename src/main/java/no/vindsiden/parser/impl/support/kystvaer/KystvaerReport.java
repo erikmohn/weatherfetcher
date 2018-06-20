@@ -129,27 +129,29 @@ public class KystvaerReport {
     }
 
     public Double getWindDirection() {
-        return getDoubleValue("Vindretning");
+        return getDoubleValue("Vindretning", "Vindretning (FF)");
     }
 
     public Double getWindNow() {
-        return getDoubleValue("WINDSPD");
+        return getDoubleValue("WINDSPD","Vindhastighet (10 meter over bakken)");
     }
 
     public Double getWindMax() {
-        return getDoubleValue("WINDGUS");
+        return getDoubleValue("WINDGUS","Kraftigste vindkast (siste 10 min)");
     }
 
     public Double getWindAvg() {
-        return getDoubleValue("Vindhastighet");
+        return getDoubleValue("Vindhastighet","Vindhastighet (10 meter over bakken)");
     }
 
-    private Double getDoubleValue(String value) {
+    private Double getDoubleValue(String ... values) {
         for (Instantaneous i : getInstantaneous()) {
-            if (value.equals(i.getName())) {
-                return i.getValue().getValue();
+            for(String s : values) {
+                if (s.equals(i.getName())) {
+                    return i.getValue().getValue();
+                }
             }
         }
-       return null;
+        throw new RuntimeException("No Value found for field mapping");
     }
 }
