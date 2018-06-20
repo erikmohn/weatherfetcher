@@ -37,7 +37,7 @@ public class KystvaerDataParser extends WeatherDataParser {
         m.setWindMin(report.getWindNow());
         m.setWindAvg(report.getWindAvg());
         m.setDirectionAvg(report.getWindDirection().intValue());
-
+        m.setTemperature1(0.0);
         return Lists.newArrayList(m);
     }
 
