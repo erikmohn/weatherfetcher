@@ -128,4 +128,12 @@
 		<weatherStationId>75</weatherStationId>
 		<url>NA</url>
 	</weatherstation>
+
+	<weatherstation>
+		<name>Færder fyr</name>
+		<type>KYSTVAER</type>
+		<enabled>true</enabled>
+		<weatherStationId>76</weatherStationId>
+		<url>NA</url>
+	</weatherstation>
 </configuration>

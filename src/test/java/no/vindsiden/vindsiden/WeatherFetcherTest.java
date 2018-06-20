@@ -1,9 +1,14 @@
 package no.vindsiden.vindsiden;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import junit.framework.Assert;
 import no.vindsiden.VindsidenHttpClient;
 import no.vindsiden.WeatherFetcher;
@@ -13,6 +18,7 @@ import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.domain.WeatherStationType;
 import no.vindsiden.parser.impl.support.WindUnitType;
 import no.vindsiden.parser.impl.support.holfuy.HolfuyWeatherXML;
+import no.vindsiden.parser.impl.support.kystvaer.KystvaerReport;
 import no.vindsiden.parser.impl.support.weather.underground.WeatherUndergroundResponse;
 
 import org.apache.commons.lang.StringEscapeUtils;
@@ -54,7 +60,7 @@ public class WeatherFetcherTest {
 	public void tearDown() {
 		configuration.clearWeatherStations();
 	}
-	
+
 	@Test
 	public void testMossHavn() {
 		WeatherStation weatherStation = new WeatherStation();
@@ -68,6 +74,19 @@ public class WeatherFetcherTest {
 		
 		executeProcess();
 	}
+
+    @Test
+    public void testFaerderFyr() {
+        WeatherStation weatherStation = new WeatherStation();
+        weatherStation.setEnabled(true);
+        weatherStation.setName("Færder fyr");
+        weatherStation.setStationType(WeatherStationType.KYSTVAER);
+        weatherStation.setWindUnitType(WindUnitType.MS);
+
+        configuration.addWeatherStation(weatherStation);
+
+        executeProcess();
+    }
 	
 	@Test
 	public void holfuyExecutionTest() {
