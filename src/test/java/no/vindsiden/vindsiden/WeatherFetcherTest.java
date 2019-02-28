@@ -7,8 +7,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import junit.framework.Assert;
 import no.vindsiden.VindsidenHttpClient;
 import no.vindsiden.WeatherFetcher;

@@ -21,15 +21,6 @@
 	</weatherstation>
 
 	<weatherstation>
-		<name>haglevsworld.no</name>
-		<type>DAVIS</type>
-		<windUnitType>KNOTS</windUnitType>
-		<enabled>true</enabled>
-		<weatherStationId>62</weatherStationId>
-		<url>http://www.haglevsworld.no/weather/wdl/</url>
-	</weatherstation>
-
-	<weatherstation>
 		<name>Srfsnosk8 Hvasser</name>
 		<type>DAVIS_WEATHER_LINK</type>
 		<enabled>true</enabled>
