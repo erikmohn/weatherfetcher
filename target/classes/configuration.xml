@@ -2,14 +2,14 @@
 	<vindSidenUrl>http://www.vindsiden.no/wrm.aspx</vindSidenUrl>
 	<timeToSleepBeforeErrorHandling>20000</timeToSleepBeforeErrorHandling>
 
-	<weatherstation>
+	<!--weatherstation>
 		<name>Moss havn</name>
 		<type>DAVIS</type>
 		<windUnitType>KNOTS</windUnitType>
 		<enabled>true</enabled>
 		<weatherStationId>52</weatherStationId>
 		<url>http://weather.moss-havn.no/</url>
-	</weatherstation>
+	</weatherstation-->
 
 	<weatherstation>
 		<name>gunnarbu.com</name>
@@ -20,24 +20,15 @@
 		<url>http://www.gunnarbu.com/var/</url>
 	</weatherstation>
 
-	<weatherstation>
-		<name>haglevsworld.no</name>
-		<type>DAVIS</type>
-		<windUnitType>KNOTS</windUnitType>
-		<enabled>true</enabled>
-		<weatherStationId>62</weatherStationId>
-		<url>http://www.haglevsworld.no/weather/wdl/</url>
-	</weatherstation>
-
-	<weatherstation>
+	<!--weatherstation>
 		<name>Srfsnosk8 Hvasser</name>
 		<type>DAVIS_WEATHER_LINK</type>
 		<enabled>true</enabled>
 		<weatherStationId>51</weatherStationId>
 		<url>http://www.weatherlink.com/user/srfsnosk8hvasser/index.php?view=summary&amp;amp;amp;headers=0
 		</url>
-	</weatherstation>
-	<weatherstation>
+	</weatherstation-->
+	<!--weatherstation>
 		<name>Srfsnosk8 Halden brygge</name>
 		<type>DAVIS_WEATHER_LINK</type>
 		<enabled>true</enabled>
@@ -45,7 +36,7 @@
 		<weatherStationId>67</weatherStationId>
 		<url>http://www.weatherlink.com/user/haldenbrygge/index.php?view=summary&amp;amp;amp;headers=0
 		</url>
-	</weatherstation>
+	</weatherstation-->
 	<weatherstation>
 		<name>Rolfstangen</name>
 		<type>DAVIS_WEATHER_LINK</type>
@@ -55,14 +46,14 @@
 		</url>
 	</weatherstation>
 
-	<weatherstation>
+	<!--weatherstation>
 		<name>Fulehuk fyr</name>
 		<type>DAVIS_WEATHER_LINK</type>
 		<enabled>true</enabled>
 		<weatherStationId>60</weatherStationId>
 		<url>http://www.weatherlink.com/user/fulehuk/index.php?view=summary&amp;amp;amp;headers=0
 		</url>
-	</weatherstation>
+	</weatherstation-->
 
 	<weatherstation>
 		<name>Fuglevik baathavn</name>
@@ -113,13 +104,14 @@
 		<url></url>
 	</weatherstation>
 
-	<weatherstation>
+
+	<!--weatherstation>
 		<name>Larkollen 2</name>
 		<type>WEATHER_UNDERGROUND</type>
 		<enabled>true</enabled>
 		<weatherStationId>75</weatherStationId>
 		<url>NA</url>
-	</weatherstation>
+	</weatherstation-->
 
 	<weatherstation>
 		<name>Kystvær</name>
