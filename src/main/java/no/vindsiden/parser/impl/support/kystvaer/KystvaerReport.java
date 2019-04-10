@@ -1,6 +1,7 @@
 
 package no.vindsiden.parser.impl.support.kystvaer;
 
+import java.time.Instant;
 import java.util.List;
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
@@ -148,8 +149,19 @@ public class KystvaerReport {
         for (Instantaneous i : getInstantaneous()) {
             for(String s : values) {
                 if (s.equals(i.getName())) {
+
                     return i.getValue().getValue();
                 }
+            }
+        }
+        throw new RuntimeException("No Value found for field mapping");
+    }
+
+    public Instant getTimeStamp() {
+        Instant timestamp = null;
+        for (Instantaneous i : getInstantaneous()) {
+            if (i.getValue().getTimestamp() != null) {
+                return Instant.parse(i.getValue().getTimestamp());
             }
         }
         throw new RuntimeException("No Value found for field mapping");

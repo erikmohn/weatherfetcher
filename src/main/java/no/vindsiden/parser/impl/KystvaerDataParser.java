@@ -9,12 +9,15 @@ import no.vindsiden.parser.WeatherDataParser;
 import no.vindsiden.parser.impl.support.kystvaer.KystvaerIdMapping;
 import no.vindsiden.parser.impl.support.kystvaer.KystvaerReport;
 import org.apache.commons.lang.math.NumberUtils;
+import org.joda.time.DateTime;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.Instant;
+import java.time.temporal.TemporalAmount;
 import java.util.List;
 
 public class KystvaerDataParser extends WeatherDataParser {
@@ -44,6 +47,7 @@ public class KystvaerDataParser extends WeatherDataParser {
             m.setDirectionAvg(report.getWindDirection().intValue());
             m.setTemperature1(0.0);
 
+            m.setTimestamp(report.getTimeStamp());
             measuerments.add(m);
         }
         return measuerments;

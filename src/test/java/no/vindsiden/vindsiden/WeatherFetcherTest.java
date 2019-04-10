@@ -1,13 +1,6 @@
 package no.vindsiden.vindsiden;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import no.vindsiden.VindsidenHttpClient;
 import no.vindsiden.WeatherFetcher;
 import no.vindsiden.configuration.Configuration;
@@ -15,23 +8,14 @@ import no.vindsiden.domain.Measurement;
 import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.domain.WeatherStationType;
 import no.vindsiden.parser.impl.support.WindUnitType;
-import no.vindsiden.parser.impl.support.holfuy.HolfuyWeatherXML;
-import no.vindsiden.parser.impl.support.kystvaer.KystvaerReport;
-import no.vindsiden.parser.impl.support.weather.underground.WeatherUndergroundResponse;
-
-import org.apache.commons.lang.StringEscapeUtils;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.google.common.html.HtmlEscapers;
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 
 /**
@@ -43,7 +27,7 @@ public class WeatherFetcherTest {
 	private Configuration configuration;
 	
 	@Mock
-	private VindsidenHttpClient vindsidenHttpClientMock;
+	private VindsidenHttpClient vindsidenHttpClientMock ;
 	
 	@Before
 	public void setUp() throws UnsupportedEncodingException {
@@ -71,6 +55,17 @@ public class WeatherFetcherTest {
 		configuration.addWeatherStation(weatherStation);
 		
 		executeProcess();
+	}
+
+	@Test
+	public void testKystVaer() {
+		WeatherStation weatherStation = new WeatherStation();
+		weatherStation.setEnabled(true);
+		weatherStation.setStationType(WeatherStationType.KYSTVAER);
+		configuration.addWeatherStation(weatherStation);
+		fetcher = new WeatherFetcher(configuration);
+		fetcher.setHttpClient(new VindsidenHttpClient());
+		fetcher.execute();
 	}
 
     @Test
@@ -188,7 +183,7 @@ public class WeatherFetcherTest {
 
 	private void executeProcess() {
 		fetcher = new WeatherFetcher(configuration);
-		fetcher.setHttpClient(vindsidenHttpClientMock);
+		fetcher.setHttpClient(new VindsidenHttpClient());
 		fetcher.execute();	
 	}
 	
@@ -196,8 +191,8 @@ public class WeatherFetcherTest {
 	public void testMinimumWindZero() {
 		Measurement m = new Measurement();
 		m.setWindMin(0.0);
-		
-		Assert.assertEquals(0.0, m.getWindMin());
+
+		Assert.assertEquals(0.0, m.getWindMin().doubleValue(), 0);
 	}
 	
 	@Test
@@ -205,7 +200,7 @@ public class WeatherFetcherTest {
 		Measurement m = new Measurement();
 		m.setWindMin(-1.0);
 		
-		Assert.assertEquals(0.0, m.getWindMin());
+		Assert.assertEquals(0.0, m.getWindMin().doubleValue(),0);
 	}
 	
 	@Test
@@ -213,7 +208,7 @@ public class WeatherFetcherTest {
 		Measurement m = new Measurement();
 		m.setWindMin(1.0);
 		
-		Assert.assertEquals(1.0, m.getWindMin());
+		Assert.assertEquals(1.0, m.getWindMin().doubleValue(),0);
 	}
 	
 	@Test

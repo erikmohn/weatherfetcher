@@ -1,6 +1,12 @@
 package no.vindsiden;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,9 +17,6 @@ import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.domain.WeatherStationComparator;
 
 import org.apache.commons.httpclient.HttpException;
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 
 
 /**
@@ -89,18 +92,25 @@ public class WeatherFetcher {
 	private void processWeatherStation(WeatherStation weatherStation) throws IOException, HttpException {
 		
 		List<Measurement> measurements =  weatherStation.fetchMeasurement();
-		
+
+
 		for (Measurement measurement : measurements) {
-			httpClient.sendHttpRequest(measurement);
-			
-			DateTime now = new DateTime();
-			DateTimeFormatter fmt = DateTimeFormat.mediumDateTime();
-			
 			String name = (measurements.size() == 1 ) ? weatherStation.getName() : measurement.getStationName();
-			
-			log( fmt.print(now) + " Executed HTTP request, for " + name + " : " + measurement.toVindSidenUrl());			
+            Instant latestUpdate = null;
+			if (measurement.getTimestamp() != null) {
+			    latestUpdate = httpClient.getLatestUpdateTimestamp(measurement);
+            }
+
+			if (latestUpdate == null || measurement.getTimestamp().isAfter(latestUpdate)) {
+				httpClient.sendHttpRequest(measurement);
+				log( Instant.now() + " Executed HTTP request, for " + name + " : " + measurement.toVindSidenUrl());
+			} else {
+				log( Instant.now() + " Did not send data, due to outdated timestamp:  " + measurement.getTimestamp() + " " + name + " : " + measurement.toVindSidenUrl());
+			}
 		}
 	}
+
+
 
 	private void executeErrorHandling() {
 		inErrorHandling = true;
@@ -130,5 +140,5 @@ public class WeatherFetcher {
 	protected void log(String log) {
 		System.out.println(log);
 	}
-	
+
 }

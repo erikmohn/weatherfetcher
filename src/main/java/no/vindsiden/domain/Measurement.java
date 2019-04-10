@@ -1,6 +1,7 @@
 package no.vindsiden.domain;
 
 import java.text.DecimalFormat;
+import java.time.Instant;
 
 import no.vindsiden.parser.impl.support.JodaTimeConverter;
 
@@ -29,6 +30,7 @@ public class Measurement {
 	private int Light;
 	private Double Battery;
 	private String stationName;
+	private Instant timestamp;
 
 	public int getDataID() {
 		return DataID;
@@ -177,4 +179,11 @@ public class Measurement {
 		this.stationName = stationName;
 	}
 
+	public Instant getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Instant timestamp) {
+		this.timestamp = timestamp;
+	}
 }
