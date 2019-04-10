@@ -12,6 +12,7 @@ public enum WeatherStationType {
 	HORTENHAVN,
 	LEASOE,
 	WEATHER_UNDERGROUND,
-	KYSTVAER
+	KYSTVAER,
+	WEATHERLINK2
 	
 }

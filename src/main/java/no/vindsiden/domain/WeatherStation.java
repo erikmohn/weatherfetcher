@@ -22,6 +22,10 @@ public class WeatherStation {
 	private WindUnitType windUnitType;
 	private WeatherStationType type;
 
+	private String username;
+	private String password;
+	private String token;
+
 	public List<Measurement> fetchMeasurement() throws IOException {
 		return Lists.newArrayList(WeatherDataParserFactory.getInstance(this)
 				.fetchMeasurement());
@@ -78,5 +82,29 @@ public class WeatherStation {
 
 	public void setStationType(WeatherStationType stationType) {
 		this.type = stationType;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 }

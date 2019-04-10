@@ -43,6 +43,9 @@ public class WeatherDataParserFactory {
             case KYSTVAER:
                 parser = new KystvaerDataParser(weatherStation);
                 break;
+            case WEATHERLINK2:
+                parser = new Weatherlink2DataParser(weatherStation);
+                break;
             default:
                 throw new RuntimeException(
                         "No matching parser for weatherstation type!");

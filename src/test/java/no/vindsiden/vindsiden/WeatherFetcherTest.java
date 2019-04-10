@@ -1,5 +1,6 @@
 package no.vindsiden.vindsiden;
 
+import no.vindsiden.parser.impl.Weatherlink2DataParser;
 import org.junit.Assert;
 import no.vindsiden.VindsidenHttpClient;
 import no.vindsiden.WeatherFetcher;
@@ -11,11 +12,17 @@ import no.vindsiden.parser.impl.support.WindUnitType;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.when;
 
 
 /**
@@ -36,6 +43,8 @@ public class WeatherFetcherTest {
 		configuration = new Configuration();
 		configuration.setVindSidenUrl("http://www.vindsiden.no/wrm.aspx");
 		configuration.setTimeToSleepBeforeErrorHandling(100L);
+
+
 	}
 	
 	@After
@@ -91,6 +100,23 @@ public class WeatherFetcherTest {
 
 		configuration.addWeatherStation(weatherStation);
 		
+		executeProcess();
+	}
+
+	@Test
+	public void weatherlink2Test() {
+		WeatherStation weatherStation = new WeatherStation();
+		weatherStation.setEnabled(true);
+		weatherStation.setName("Rolfstangen");
+		weatherStation.setStationType(WeatherStationType.WEATHERLINK2);
+		weatherStation.setUsername("A");
+		weatherStation.setPassword("B");
+		weatherStation.setToken("C");
+
+
+
+
+		configuration.addWeatherStation(weatherStation);
 		executeProcess();
 	}
 	

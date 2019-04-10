@@ -37,14 +37,7 @@
 		<url>http://www.weatherlink.com/user/haldenbrygge/index.php?view=summary&amp;amp;amp;headers=0
 		</url>
 	</weatherstation-->
-	<weatherstation>
-		<name>Rolfstangen</name>
-		<type>DAVIS_WEATHER_LINK</type>
-		<enabled>true</enabled>
-		<weatherStationId>58</weatherStationId>
-		<url>http://www.weatherlink.com/user/lbk/index.php?view=summary&amp;amp;amp;headers=0
-		</url>
-	</weatherstation>
+
 
 	<!--weatherstation>
 		<name>Fulehuk fyr</name>
@@ -118,5 +111,15 @@
 		<type>KYSTVAER</type>
 		<enabled>true</enabled>
 		<url>NA</url>
+	</weatherstation>
+
+	<weatherstation>
+		<name>Rolfstangen</name>
+		<type>WEATHERLINK2</type>
+		<weatherStationId>58</weatherStationId>
+		<enabled>true</enabled>
+		<username>lysakerBrukernavn</username>
+		<password>lysakerPassord</password>
+		<token>lysakerToken</token>
 	</weatherstation>
 </configuration>
