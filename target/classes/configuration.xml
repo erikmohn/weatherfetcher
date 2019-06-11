@@ -97,15 +97,6 @@
 		<url></url>
 	</weatherstation>
 
-
-	<!--weatherstation>
-		<name>Larkollen 2</name>
-		<type>WEATHER_UNDERGROUND</type>
-		<enabled>true</enabled>
-		<weatherStationId>75</weatherStationId>
-		<url>NA</url>
-	</weatherstation-->
-
 	<weatherstation>
 		<name>Kystvær</name>
 		<type>KYSTVAER</type>

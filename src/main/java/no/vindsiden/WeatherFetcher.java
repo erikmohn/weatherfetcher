@@ -89,7 +89,7 @@ public class WeatherFetcher {
 		}
 	}
 
-	private void processWeatherStation(WeatherStation weatherStation) throws IOException, HttpException {
+	private void processWeatherStation(WeatherStation weatherStation) throws Exception {
 		List<Measurement> measurements =  weatherStation.fetchMeasurement();
 
 		for (Measurement measurement : measurements) {

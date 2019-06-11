@@ -26,7 +26,7 @@ public class WeatherStation {
 	private String password;
 	private String token;
 
-	public List<Measurement> fetchMeasurement() throws IOException {
+	public List<Measurement> fetchMeasurement() throws Exception {
 		return Lists.newArrayList(WeatherDataParserFactory.getInstance(this)
 				.fetchMeasurement());
 	}

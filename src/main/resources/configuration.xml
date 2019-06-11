@@ -113,4 +113,14 @@
 		<password>lysakerPassord</password>
 		<token>lysakerToken</token>
 	</weatherstation>
+
+	<weatherstation>
+		<name>Fulehuk</name>
+		<type>WEATHERLINK2</type>
+		<weatherStationId>60</weatherStationId>
+		<enabled>true</enabled>
+		<username>fulehukBrukernavn</username>
+		<password>fulehukPassord</password>
+		<token>fulehukToken</token>
+	</weatherstation>
 </configuration>

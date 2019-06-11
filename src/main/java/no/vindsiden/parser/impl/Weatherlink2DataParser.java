@@ -11,12 +11,19 @@ import no.vindsiden.parser.impl.support.weatherlink2.WeatherLinkMeasurement;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -30,13 +37,14 @@ public class Weatherlink2DataParser extends WeatherDataParser {
     }
 
     @Override
-    public List<Measurement> fetchMeasurement() throws IOException {
+    public List<Measurement> fetchMeasurement() throws IOException, ParseException {
 
-        String url = "https://api.weatherlink.com/v1/NoaaExt.json?user=USERNAME&pass=PASSORD&apiToken=TOKEN";
-        String urlWithUserData = url
+        String urlWithUserData = "https://api.weatherlink.com/v1/NoaaExt.json?user=001D0A00504B&pass=bretterg%C3%B8y&apiToken=A4F25366AE394C5FBBA6445E5E3BC0A2";
+
+        /*String urlWithUserData = url
                 .replace("USERNAME", System.getenv(getWeatherStation().getUsername()))
                 .replace("PASSORD", System.getenv(getWeatherStation().getPassword()))
-                .replace("TOKEN", System.getenv(getWeatherStation().getToken()));
+                .replace("TOKEN", System.getenv(getWeatherStation().getToken()));*/
 
         String json = fetchContent(urlWithUserData);
 
