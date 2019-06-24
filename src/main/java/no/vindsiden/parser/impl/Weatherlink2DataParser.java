@@ -43,11 +43,6 @@ public class Weatherlink2DataParser extends WeatherDataParser {
 
         String urlWithUserData = "https://api.weatherlink.com/v1/NoaaExt.json?user=USERNAME&pass=PASSORD&apiToken=TOKEN";
 
-/*
-        weatherStation.setUsername("001D0A0067BF");
-        weatherStation.setPassword("Vær_FuleHuk-skjær");
-        weatherStation.setToken("2A205303EF44452AA96C93CB0EB595FD");*/
-
         String url = urlWithUserData
                 .replace("USERNAME", System.getenv(getWeatherStation().getUsername()))
                 .replace("PASSORD", System.getenv(getWeatherStation().getPassword()))
@@ -55,7 +50,7 @@ public class Weatherlink2DataParser extends WeatherDataParser {
 
         System.out.println("Fetching url: " + url);
 
-        String json = fetchContent(urlWithUserData);
+        String json = fetchContent(url);
 
         Gson gson = new GsonBuilder().create();
         WeatherLinkMeasurement lastMeasurment = gson.fromJson(json, WeatherLinkMeasurement.class);
