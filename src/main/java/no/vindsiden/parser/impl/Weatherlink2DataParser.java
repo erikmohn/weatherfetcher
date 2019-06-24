@@ -2,6 +2,7 @@ package no.vindsiden.parser.impl;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import no.vindsiden.EnvResolver;
 import no.vindsiden.domain.Measurement;
 import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.parser.VindsidenMeasurment;
@@ -30,6 +31,7 @@ import java.util.stream.Stream;
 
 public class Weatherlink2DataParser extends WeatherDataParser {
 
+    private EnvResolver resolver;
 
     public Weatherlink2DataParser(WeatherStation weatherStation) {
 
@@ -46,10 +48,12 @@ public class Weatherlink2DataParser extends WeatherDataParser {
         weatherStation.setPassword("Vær_FuleHuk-skjær");
         weatherStation.setToken("2A205303EF44452AA96C93CB0EB595FD");*/
 
-        String url = getWeatherStation().getUrl()
+        String url = urlWithUserData
                 .replace("USERNAME", System.getenv(getWeatherStation().getUsername()))
                 .replace("PASSORD", System.getenv(getWeatherStation().getPassword()))
                 .replace("TOKEN", System.getenv(getWeatherStation().getToken()));
+
+        System.out.println("Fetching url: " + url);
 
         String json = fetchContent(urlWithUserData);
 
@@ -95,4 +99,11 @@ public class Weatherlink2DataParser extends WeatherDataParser {
         return null;
     }
 
+    public EnvResolver getResolver() {
+        return resolver;
+    }
+
+    public void setResolver(EnvResolver resolver) {
+        this.resolver = resolver;
+    }
 }
