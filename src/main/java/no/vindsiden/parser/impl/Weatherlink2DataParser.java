@@ -39,12 +39,17 @@ public class Weatherlink2DataParser extends WeatherDataParser {
     @Override
     public List<Measurement> fetchMeasurement() throws IOException, ParseException {
 
-        String urlWithUserData = "https://api.weatherlink.com/v1/NoaaExt.json?user=001D0A00504B&pass=bretterg%C3%B8y&apiToken=A4F25366AE394C5FBBA6445E5E3BC0A2";
+        String urlWithUserData = "https://api.weatherlink.com/v1/NoaaExt.json?user=USERNAME&pass=PASSORD&apiToken=TOKEN";
 
-        /*String urlWithUserData = url
+/*
+        weatherStation.setUsername("001D0A0067BF");
+        weatherStation.setPassword("Vær_FuleHuk-skjær");
+        weatherStation.setToken("2A205303EF44452AA96C93CB0EB595FD");*/
+
+        String url = getWeatherStation().getUrl()
                 .replace("USERNAME", System.getenv(getWeatherStation().getUsername()))
                 .replace("PASSORD", System.getenv(getWeatherStation().getPassword()))
-                .replace("TOKEN", System.getenv(getWeatherStation().getToken()));*/
+                .replace("TOKEN", System.getenv(getWeatherStation().getToken()));
 
         String json = fetchContent(urlWithUserData);
 

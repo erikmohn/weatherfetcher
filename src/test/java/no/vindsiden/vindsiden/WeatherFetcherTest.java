@@ -109,12 +109,9 @@ public class WeatherFetcherTest {
 		weatherStation.setEnabled(true);
 		weatherStation.setName("Rolfstangen");
 		weatherStation.setStationType(WeatherStationType.WEATHERLINK2);
-		weatherStation.setUsername("A");
-		weatherStation.setPassword("B");
-		weatherStation.setToken("C");
-
-
-
+		weatherStation.setUsername("na");
+		weatherStation.setPassword("na");
+		weatherStation.setToken("na");
 
 		configuration.addWeatherStation(weatherStation);
 		executeProcess();
