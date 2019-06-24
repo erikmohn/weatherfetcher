@@ -7,6 +7,7 @@ import no.vindsiden.domain.Measurement;
 import no.vindsiden.domain.WeatherStation;
 import no.vindsiden.parser.VindsidenMeasurment;
 import no.vindsiden.parser.WeatherDataParser;
+import no.vindsiden.parser.impl.support.WeatherDataUnavailableException;
 import no.vindsiden.parser.impl.support.weatherlink2.DavisCurrentObservation;
 import no.vindsiden.parser.impl.support.weatherlink2.WeatherLinkMeasurement;
 import org.joda.time.DateTime;
@@ -48,12 +49,14 @@ public class Weatherlink2DataParser extends WeatherDataParser {
                 .replace("PASSORD", System.getenv(getWeatherStation().getPassword()))
                 .replace("TOKEN", System.getenv(getWeatherStation().getToken()));
 
-        System.out.println("Fetching url: " + url);
-
         String json = fetchContent(url);
 
         Gson gson = new GsonBuilder().create();
         WeatherLinkMeasurement lastMeasurment = gson.fromJson(json, WeatherLinkMeasurement.class);
+
+        if (lastMeasurment.getWindMph() == null) {
+            throw new WeatherDataUnavailableException("No weather data available for weatherstation");
+        }
 
         Measurement m = new Measurement();
         m.setStationID(getWeatherStation().getWeatherStationId());
