@@ -142,7 +142,20 @@ public class WeatherFetcherTest {
 		
 		executeProcess();
 	}
-	
+
+	@Test
+	public void hvideSandeExecutionTest() {
+		WeatherStation weatherStation = new WeatherStation();
+		weatherStation.setEnabled(true);
+		weatherStation.setName("HvideSande");
+		weatherStation.setStationType(WeatherStationType.HVIDESANDE);
+		weatherStation.setUrl("http://hyde.dk/");
+
+		configuration.addWeatherStation(weatherStation);
+
+		executeProcess();
+	}
+
 	@Test
 	public void haldenBryggeTest() {
 		WeatherStation weatherStation = new WeatherStation();
