@@ -123,4 +123,13 @@
 		<password>fulehukPassord</password>
 		<token>fulehukToken</token>
 	</weatherstation>
+
+	<weatherstation>
+		<name>Hvide sande</name>
+		<type>HVIDESANDE</type>
+		<windUnitType>MS</windUnitType>
+		<enabled>true</enabled>
+		<weatherStationId>83</weatherStationId>
+		<url>http://hyde.dk/</url>
+	</weatherstation>
 </configuration>

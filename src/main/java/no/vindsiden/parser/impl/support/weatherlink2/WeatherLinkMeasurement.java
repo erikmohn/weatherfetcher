@@ -74,6 +74,18 @@ public class WeatherLinkMeasurement {
     @Expose
     private String timeToGenerate;
 
+    public String getTempC() {
+        return tempC;
+    }
+
+    public void setTempC(String tempC) {
+        this.tempC = tempC;
+    }
+
+    @SerializedName("temp_c")
+    @Expose
+    private String tempC;
+
     public String getCredit() {
         return credit;
     }
