@@ -68,7 +68,13 @@ public class Weatherlink2DataParser extends WeatherDataParser {
         m.setDirectionAvg(Integer.parseInt(lastMeasurment.getWindDegrees()));
         m.setWindStDev(0.0);
         m.setDirectionStDev(0.0);
-        m.setTemperature1(Double.parseDouble(lastMeasurment.getTempC()));
+
+        if (lastMeasurment.getTempC() != null) {
+            m.setTemperature1(Double.parseDouble(lastMeasurment.getTempC()));
+        } else {
+            String temp = lastMeasurment.getDavisCurrentObservation().getTempInF();
+            m.setTemperature1((Double.parseDouble(temp)-32)*0.5556);
+        }
 
         return Stream.of(m).collect(Collectors.toList());
     }

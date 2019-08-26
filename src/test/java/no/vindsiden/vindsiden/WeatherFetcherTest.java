@@ -43,8 +43,6 @@ public class WeatherFetcherTest {
 		configuration = new Configuration();
 		configuration.setVindSidenUrl("http://www.vindsiden.no/wrm.aspx");
 		configuration.setTimeToSleepBeforeErrorHandling(100L);
-
-
 	}
 	
 	@After
